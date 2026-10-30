@@ -23,6 +23,10 @@ main{
 }
 
 /* COMPONENTS */
+.widget{
+    border-left: 4px solid var(--main);
+    padding-left: 12px;
+}
 .btn-sec{
     background-color: var(--main);
     border-radius: 8px;
