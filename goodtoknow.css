@@ -1,0 +1,69 @@
+@import url(global.css);
+
+p{
+.bag-drop {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/bagDrop.png);
+}
+.fuel {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/fuelWater.png);
+}
+.race-tag {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/raceTag.png);
+}
+.warm-up {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/warmUp.png);
+}
+.toilets {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/toilet.png);
+}
+
+.bag-drop {
+    max-width: 600px;
+    width: 100%;
+}
+}
+
+.widget {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.widget summary {
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Hide the default arrow */
+.widget summary::-webkit-details-marker {
+    display: none;
+}
+
+.widget summary h2 {
+    margin: 0 0 8px;
+}
+
+.widget summary p {
+    margin: 0;
+}
+
+/* Custom arrow */
+.arrow {
+    display: block;
+    font-size: 28px;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when open */
+.widget[open] .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    padding: 20px;
+    background-color: white;
+    line-height: 1.6;
+}
