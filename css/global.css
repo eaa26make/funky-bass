@@ -8,14 +8,21 @@
     --bg-light:         #fff;
     --bg-dark:          #000;
     --bg-sec:           #1A1A1A;
+
+    --outline:          #EAEAEA;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 body{
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Inter", sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 h1{
-    font-family: "Inter", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 }
 
 main{
@@ -24,8 +31,15 @@ main{
 
 /* COMPONENTS */
 .widget{
+    border: 2px solid var(--outline);
     border-left: 4px solid var(--main);
-    padding-left: 12px;
+    border-radius: 16px;
+    padding: 16px 16px 20px 16px;
+}
+.widget-heading{
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    margin: 0;
 }
 .btn-sec{
     background-color: var(--main);
