@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/gallery.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <main>
-        <div class="widget gallery-hero">
-
+        <div class="widget gallery-hero"> <!-- KIOSK VERSION -->
+            <div>
+                <p class="widget-heading">How to participate</p>
+                <p class="gallery-hero-heading">Share Moments</p>
+                <div class="gallery-list">
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">01</p>
+                        <p class="gallery-list-element-p2">Take photos of Marathon</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">02</p>
+                        <p class="gallery-list-element-p2">Scan the QR code</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">03</p>
+                        <p class="gallery-list-element-p2">Upload them</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">04</p>
+                        <p class="gallery-list-element-p2">Download pictures you like</p>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-code-container">
+                <img src="assets/icons/iconClose.svg" alt="QR Code">
+            </div>
         </div>
-        <div class="widget">
-
+        <div class="widget gallery-hero-mobile"> <!-- MOBILE VERSION -->
+            <div>
+                <p class="widget-heading">How to participate</p>
+                <p class="gallery-hero-heading">Share Moments</p>
+                <div class="gallery-list">
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">01</p>
+                        <p class="gallery-list-element-p2">Take photos of Marathon</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">02</p>
+                        <p class="gallery-list-element-p2">Click the upload button</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">03</p>
+                        <p class="gallery-list-element-p2">Upload them</p>
+                    </div>
+                    <div class="gallery-list-element">
+                        <p class="gallery-list-element-p1">04</p>
+                        <p class="gallery-list-element-p2">Download pictures you like</p>
+                    </div>
+                </div>
+            </div>
+            <div class="qr-code-container">
+                <img src="assets/icons/iconClose.svg" alt="QR Code">
+            </div>
+        </div>
+        <div class="widget" id="gallery-showcase"> <!-- GALLERY -->
+            <div class="gallery-item tall"><img src="assets/img/bagDrop.png"></div>
+            <div class="gallery-item"><img src="assets/img/warmUp.png"></div>
+            <div class="gallery-item wide"><img src="assets/img/home.png"></div>
+            <div class="gallery-item"><img src="assets/img/toilet.png"></div>
+            <div class="gallery-item tall"><img src="assets/img/raceTag.png"></div>
         </div>
     </main>
+    <script src="scripts/gallery.js"></script>
 </body>
+
 </html>
