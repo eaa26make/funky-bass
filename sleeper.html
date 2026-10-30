@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Welcome | Copenhagen Marathon</title>
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <!-- Sleeper page CSS -->
+  <link rel="stylesheet" href="sleeper.css">
+</head>
+
+<body class="sleeper-page">
+
+  <main class="sleeper-screen">
+
+    <!-- BACKGROUND VIDEO -->
+    <video
+      class="sleeper-video"
+      id="sleeperVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true">
+
+      <source
+        src="assets/img/Sleeperpage.mov"
+        type="video/quicktime">
+
+    </video>
+
+
+    <!-- DARK OVERLAY -->
+    <div class="sleeper-overlay"></div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="sleeper-content">
+
+      <!-- MARATHON TITLE -->
+      <h1 class="sleeper-title">
+        COPENHAGEN<br>
+        MARATHON<sup>®</sup>
+      </h1>
+
+
+      <!-- TEMPORARY MARATHON SYMBOL -->
+      <div class="sleeper-logo" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+
+      <!-- TOUCH INSTRUCTION -->
+      <div class="sleeper-instruction">
+
+        <h2>PRESS THE SCREEN</h2>
+
+        <!-- Yellow line -->
+        <div class="sleeper-line"></div>
+
+        <!-- Animated touch circle -->
+        <div class="touch-circle">
+
+          <div class="touch-circle-inner">
+            <div class="touch-dot"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CLICKABLE SCREEN -->
+    <button
+      class="sleeper-enter"
+      id="enterKiosk"
+      type="button"
+      aria-label="Press to enter the Copenhagen Marathon kiosk">
+    </button>
+
+  </main>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="sleeper.js"></script>
+
+</body>
+</html>

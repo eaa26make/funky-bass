@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Course Info | Copenhagen Marathon</title>
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <!-- Trails CSS -->
+  <link rel="stylesheet" href="trails.css">
+</head>
+
+<body class="trails-page">
+
+  <main class="trails">
+
+    <!-- ===================== -->
+    <!-- MARATHON TIMELINE -->
+    <!-- ===================== -->
+
+    <section class="timeline-section">
+
+      <h2 class="section-title">
+        ROUTE - 42,195 KILOMETERS
+      </h2>
+
+      <div class="timeline">
+
+        <!-- Horizontal timeline line -->
+        <div class="timeline-line"></div>
+
+        <!-- Food icons above timeline -->
+        <div
+          class="food-stations"
+          id="foodStations">
+        </div>
+
+        <!-- Dynamic station markers -->
+        <div
+          class="timeline-markers"
+          id="timelineMarkers">
+        </div>
+
+        <!-- START -->
+        <div class="timeline-endpoint timeline-start">
+          <span class="endpoint-dot"></span>
+          <span>START</span>
+        </div>
+
+        <!-- DISTANCES -->
+        <span
+          class="distance-label"
+          style="--position: 26.33%">
+          10
+        </span>
+
+        <span
+          class="distance-label"
+          style="--position: 47.66%">
+          20
+        </span>
+
+        <span
+          class="distance-label"
+          style="--position: 68.99%">
+          30
+        </span>
+
+        <!-- FINISH -->
+        <div class="timeline-endpoint timeline-finish">
+          <span class="endpoint-dot"></span>
+          <span>FINISH</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- MARATHON ROUTE MAP -->
+    <!-- ===================== -->
+
+    <section class="map-section" aria-label="Route map">
+
+      <div class="map-container">
+
+        <!-- Figma route map -->
+        <!-- ROUTE MAP heading is already in the image -->
+        <img
+          src="assets/img/Route.jpeg"
+          alt="Copenhagen Marathon route map"
+          class="route-map"
+        >
+
+        <!-- Dynamic map markers -->
+        <div
+          class="map-markers"
+          id="mapMarkers"
+          aria-hidden="true">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- FILTER BUTTONS -->
+    <!-- ===================== -->
+
+    <section
+      class="filter-section"
+      aria-label="Aid station filters">
+
+      <!-- WATER -->
+      <button
+        class="filter-button"
+        type="button"
+        data-filter="water"
+        aria-pressed="false">
+
+        <img
+          src="assets/icons/iconWater.svg"
+          alt=""
+          class="filter-icon">
+
+        <span class="filter-text">
+          WATER
+        </span>
+
+        <span
+          class="filter-circle"
+          aria-hidden="true">
+        </span>
+
+      </button>
+
+
+      <!-- SPORT DRINK -->
+      <button
+        class="filter-button"
+        type="button"
+        data-filter="drink"
+        aria-pressed="false">
+
+        <img
+          src="assets/icons/iconDrink.svg"
+          alt=""
+          class="filter-icon">
+
+        <span class="filter-text">
+          SPORT DRINK
+        </span>
+
+        <span
+          class="filter-circle"
+          aria-hidden="true">
+        </span>
+
+      </button>
+
+
+      <!-- FOOD -->
+      <button
+        class="filter-button"
+        type="button"
+        data-filter="food"
+        aria-pressed="false">
+
+        <img
+          src="assets/icons/iconFood.svg"
+          alt=""
+          class="filter-icon">
+
+        <span class="filter-text">
+          FOOD
+        </span>
+
+        <span
+          class="filter-circle"
+          aria-hidden="true">
+        </span>
+
+      </button>
+
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="trails.js"></script>
+
+</body>
+</html>

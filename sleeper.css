@@ -1,0 +1,325 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap');
+
+
+/* ================================
+   SLEEPER PAGE - GENERAL
+================================ */
+
+body.sleeper-page {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  overflow: hidden;
+}
+
+
+/* MAIN SCREEN */
+
+main.sleeper-screen {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+
+  height: 100vh;
+  height: 100svh;
+
+  margin: 0 auto;
+  padding: 0;
+
+  overflow: hidden;
+  background: #000000;
+}
+
+
+/* ================================
+   BACKGROUND VIDEO
+================================ */
+
+.sleeper-video {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: grayscale(100%) brightness(0.7);
+}
+
+
+/* DARK OVERLAY */
+
+.sleeper-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.98) 0%,
+    rgba(0, 0, 0, 0.95) 35%,
+    rgba(0, 0, 0, 0.72) 60%,
+    rgba(0, 0, 0, 0.50) 100%
+  );
+
+  z-index: 1;
+}
+
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.sleeper-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 26vh 12px 30px;
+
+  color: #FFFFFF;
+  text-align: center;
+
+  pointer-events: none;
+}
+
+
+/* ================================
+   MAIN TITLE
+================================ */
+
+.sleeper-title {
+  margin: 0;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(48px, 10vw, 84px);
+
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.sleeper-title sup {
+  font-size: 0.4em;
+  vertical-align: super;
+}
+
+
+/* ================================
+   MARATHON SYMBOL
+================================ */
+
+.sleeper-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 22px;
+
+  height: 48px;
+
+  opacity: 0.75;
+}
+
+.sleeper-logo span {
+  display: block;
+
+  width: 28px;
+  height: 40px;
+
+  background: #FFFFFF;
+
+  clip-path: polygon(
+    0 0,
+    37% 0,
+    100% 50%,
+    37% 100%,
+    0 100%,
+    63% 50%
+  );
+
+  margin-left: -6px;
+}
+
+
+/* ================================
+   TOUCH INSTRUCTION
+================================ */
+
+.sleeper-instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 12px;
+}
+
+.sleeper-instruction h2 {
+  margin: 0;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(32px, 7vw, 56px);
+
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.15;
+
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+
+/* YELLOW LINE */
+
+.sleeper-line {
+  width: 175px;
+  height: 5px;
+
+  margin-top: 20px;
+
+  background: var(--main, #FAE100);
+}
+
+
+/* ================================
+   TOUCH CIRCLE
+================================ */
+
+.touch-circle {
+  width: 70px;
+  height: 70px;
+
+  margin-top: 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--main, #FAE100);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: touchPulse 2s ease-in-out infinite;
+}
+
+.touch-circle-inner {
+  width: 49px;
+  height: 49px;
+
+  border: 1px solid var(--main, #FAE100);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.touch-dot {
+  width: 23px;
+  height: 23px;
+
+  background: var(--main, #FAE100);
+  border-radius: 50%;
+}
+
+
+/* PULSING ANIMATION */
+
+@keyframes touchPulse {
+
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+
+/* ================================
+   CLICKABLE SCREEN
+================================ */
+
+.sleeper-enter {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 3;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+}
+
+.sleeper-enter:focus-visible {
+  outline: 3px solid #FAE100;
+  outline-offset: -6px;
+}
+
+
+/* ================================
+   SMALLER SCREENS
+================================ */
+
+@media (max-width: 390px) {
+
+  .sleeper-content {
+    padding-top: 27vh;
+  }
+
+  .sleeper-title {
+    font-size: 48px;
+  }
+
+  .sleeper-instruction h2 {
+    font-size: 36px;
+  }
+
+  .sleeper-line {
+    width: 175px;
+  }
+
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .touch-circle {
+    animation: none;
+  }
+
+}
