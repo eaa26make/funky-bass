@@ -65,6 +65,7 @@
 /* Custom arrow */
 .arrow {
     position: absolute;
+    color: #000000;
     right: 5px;
     bottom: 2px;
     display: grid;
