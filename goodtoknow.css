@@ -1,39 +1,44 @@
 @import url(global.css);
 
-p{
-.bag-drop {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/bagDrop.png);
-}
-.fuel {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/fuelWater.png);
-}
-.race-tag {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/raceTag.png);
-}
-.warm-up {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/warmUp.png);
-}
-.toilets {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://github.com/eaa26make/funky-bass/blob/main/assets/img/toilet.png);
+.bag-drop .widget summary {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/bagDrop.png");
 }
 
-.bag-drop {
-    max-width: 600px;
-    width: 100%;
+.fuel .widget summary {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/fuelWater.png");
 }
+
+.race-tag .widget summary {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/raceTag.png");
+}
+
+.warm-up .widget summary {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/warmUp.png");
+}
+
+.toilets .widget summary {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/toilet.png");
 }
 
 .widget {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
+    margin-top: 20px;
+   
 }
 
+
+
 .widget summary {
+    position: relative;
     cursor: pointer;
     list-style: none;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 44px;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
 }
 
 /* Hide the default arrow */
@@ -41,8 +46,16 @@ p{
     display: none;
 }
 
+.widget summary::marker {
+    content: "";
+}
+
 .widget summary h2 {
     margin: 0 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .widget summary p {
@@ -51,15 +64,30 @@ p{
 
 /* Custom arrow */
 .arrow {
-    display: block;
-    font-size: 28px;
-    margin-top: 10px;
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 50%;
+    background-color: #FAE100;
+}
+
+.arrow::before {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    content: "";
+    transform: rotate(45deg);
     transition: transform 0.3s ease;
 }
 
 /* Rotate arrow when open */
-.widget[open] .arrow {
-    transform: rotate(180deg);
+.widget[open] .arrow::before {
+    transform: rotate(225deg);
 }
 
 .dropdown-content {
