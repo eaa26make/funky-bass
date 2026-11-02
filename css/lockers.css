@@ -1,0 +1,95 @@
+@import "global.css";
+
+.center-it{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.lockers-text{
+    text-align: center;
+    h2{
+        margin-bottom: 0;
+        font-size: 1.75rem;
+    }
+    p{
+        margin-top: 0;
+        font-size: 1.25rem;
+    }
+
+}
+.lockers-pin{
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.big-pin-input{
+    width: 105px;
+    height: 135px;
+    background-color: black;
+    color: var(--main);
+    text-align: center;
+    font-size: 80px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+}
+.big-pin-input:focus{
+    outline: 2px solid var(--main);
+    caret-color: transparent;
+}
+.lockers-reserve{
+    width: fit-content;
+    margin: 20px auto 0;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 20px;
+}
+.buttons-container-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+#check-out{
+    width: 60%;
+    text-transform: uppercase;
+    background-color: var(--danger);
+    color: white;
+}
+#help{
+    width: 40%;
+    text-transform: uppercase;
+    background-color: var(--bg-sec);
+    color: white;
+}
+.btn-h{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+    margin: 20px 0px 0px 0px;
+}
+.btn-p{
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    margin: 0px 0px 20px 0px;
+}

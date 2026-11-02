@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/lockers.css">
+    <title>Lockers</title>
+</head>
+<body>
+    <main>
+        <div class="center-it" id="reserve-container">
+            <div class="widget">
+                <div class="lockers-text">
+                    <h2>Reserve a new locker!</h2>
+                    <p>Enter a custom pin:</p>
+                </div>
+                <div class="lockers-pin">
+                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                </div>
+                <div class="lockers-reserve">
+                    <button class="btn-sec">Reserve</button>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <div class="widget buttons-container-row" id="check-out">
+                    <img src="assets/icons/iconClose.svg">
+                    <div>
+                        <h2 class="btn-h">Check Out</h2>
+                        <p class="btn-p">Remove your items first!</p>
+                    </div>
+                </div>
+                <div class="widget buttons-container-row" id="help">
+                    <img src="assets/icons/iconClose.svg">
+                    <div>
+                        <h2 class="btn-h">Help</h2>
+                        <p class="btn-p">Need assistance?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

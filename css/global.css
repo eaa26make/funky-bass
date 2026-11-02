@@ -8,6 +8,7 @@
     --bg-light:         #fff;
     --bg-dark:          #000;
     --bg-sec:           #1A1A1A;
+    --danger:           #B91C1C;
 
     --outline:          #EAEAEA;
 }
@@ -35,6 +36,7 @@ main{
     border-left: 4px solid var(--main);
     border-radius: 16px;
     padding: 16px 16px 20px 16px;
+    width: 100%;
 }
 .widget-heading{
     font-family: "Inter", sans-serif;
@@ -43,6 +45,12 @@ main{
 }
 .btn-sec{
     background-color: var(--main);
+    border: none;
     border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 16px 32px;
     color: black;
 }
