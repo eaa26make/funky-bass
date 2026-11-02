@@ -1,23 +1,30 @@
-@import url(global.css);
-
-.bag-drop .widget summary {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/bagDrop.png");
+body {
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
-.fuel .widget summary {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/fuelWater.png");
+main {
+    padding-block: 5px;
 }
 
-.race-tag .widget summary {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/raceTag.png");
+.bag-drop .widget {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/bagDrop.png");
 }
 
-.warm-up .widget summary {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/warmUp.png");
+.fuel .widget {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/fuelWater.png");
 }
 
-.toilets .widget summary {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/img/toilet.png");
+.race-tag .widget {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/raceTag.png");
+}
+
+.warm-up .widget {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/warmUp.png");
+}
+
+.toilets .widget {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/toilet.png");
 }
 
 .widget {
@@ -25,19 +32,24 @@
     border-radius: 8px;
     overflow: hidden;
     margin-top: 20px;
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+    background-position: center;
+    background-size: cover;
    
 }
-
-
 
 .widget summary {
     position: relative;
     cursor: pointer;
     list-style: none;
     text-align: center;
+    display: grid;
+    align-content: center;
+    gap: 0px;
+    height: 160px;
     padding: 20px 20px 44px;
-    background-position: center;
-    background-size: cover;
+    background: transparent;
     color: #ffffff;
 }
 
@@ -51,23 +63,24 @@
 }
 
 .widget summary h2 {
-    margin: 0 0 8px;
+    margin: 0;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 30px;
+    font-size: 70px;
     font-weight: bold;
-    margin-bottom: 8px;
 }
 
 .widget summary p {
     margin: 0;
+    font-size: 25px;
+    font-family: "space Grotesk", sans-serif;
 }
 
 /* Custom arrow */
 .arrow {
     position: absolute;
     color: #000000;
-    right: 5px;
-    bottom: 2px;
+    right: 8px;
+    bottom: 8px;
     display: grid;
     width: 40px;
     height: 40px;
@@ -93,6 +106,36 @@
 
 .dropdown-content {
     padding: 20px;
-    background-color: white;
+    background: transparent;
+    color: #ffffff;
     line-height: 1.6;
+}
+
+.widget[open] .dropdown-content {
+    padding: 22px;
+}
+
+.locker-button {
+    display: flex;
+    width: 195px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #FAE100;
+    color: #000000;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.locker-button-arrow {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center;
 }
