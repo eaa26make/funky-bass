@@ -1,3 +1,4 @@
+/* Kiosk version */
 body {
     min-height: 100vh;
     overflow-y: auto;
@@ -71,11 +72,11 @@ main {
 
 .widget summary p {
     margin: 0;
-    font-size: 25px;
+    font-size: 30px;
     font-family: "space Grotesk", sans-serif;
 }
 
-/* Custom arrow */
+/* Dropdown arrow */
 .arrow {
     position: absolute;
     color: #000000;
@@ -112,9 +113,9 @@ main {
 }
 
 .widget[open] .dropdown-content {
-    padding: 22px;
+    padding: 10px;
 }
-
+/* Locker button in Bag-drop widget */
 .locker-button {
     display: flex;
     width: 195px;
@@ -131,11 +132,58 @@ main {
     font-size: 17px;
     font-weight: bold;
     text-align: center;
+    text-decoration: none;
     cursor: pointer;
 }
-
+/* Arrow for Locker button in Bag-drop widget */
 .locker-button-arrow {
     font-size: 20px;
     line-height: 3;
     text-align: center;
+}
+/* Phone version */
+@media (max-width: 600px) {
+    main {
+        margin: 12px 12px 24px;
+    }
+
+    .widget-phone {
+        margin-top: 12px;
+        border-radius: 12px;
+    }
+
+    .widget-phone summary {
+        min-height: 128px;
+        height: auto;
+        padding: 20px 48px 24px 16px;
+    }
+
+    .widget-phone summary h2 {
+        font-size: clamp(32px, 9vw, 44px);
+        line-height: 1.1;
+    }
+
+    .widget-phone summary p {
+        margin-top: 4px;
+        font-size: clamp(15px, 4vw, 18px);
+    }
+
+    .arrow-phone {
+        right: 10px;
+        bottom: 10px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .dropdown-phone-content,
+    .widget-phone[open] .dropdown-content {
+        padding: 16px;
+        font-size: 15px;
+        overflow-wrap: anywhere;
+    }
+
+    .locker-button-phone {
+        width: min(100%, 240px);
+        min-height: 44px;
+    }
 }
