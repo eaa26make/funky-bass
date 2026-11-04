@@ -54,15 +54,6 @@ main {
     color: #ffffff;
 }
 
-/* Hide the default arrow */
-.widget summary::-webkit-details-marker {
-    display: none;
-}
-
-.widget summary::marker {
-    content: "";
-}
-
 .widget summary h2 {
     margin: 0;
     font-family: "Space Grotesk", sans-serif;
@@ -142,48 +133,3 @@ main {
     text-align: center;
 }
 /* Phone version */
-@media (max-width: 600px) {
-    main {
-        margin: 12px 12px 24px;
-    }
-
-    .widget-phone {
-        margin-top: 12px;
-        border-radius: 12px;
-    }
-
-    .widget-phone summary {
-        min-height: 128px;
-        height: auto;
-        padding: 20px 48px 24px 16px;
-    }
-
-    .widget-phone summary h2 {
-        font-size: clamp(32px, 9vw, 44px);
-        line-height: 1.1;
-    }
-
-    .widget-phone summary p {
-        margin-top: 4px;
-        font-size: clamp(15px, 4vw, 18px);
-    }
-
-    .arrow-phone {
-        right: 10px;
-        bottom: 10px;
-        width: 34px;
-        height: 34px;
-    }
-
-    .dropdown-phone-content,
-    .widget-phone[open] .dropdown-content {
-        padding: 16px;
-        font-size: 15px;
-        overflow-wrap: anywhere;
-    }
-
-    .locker-button-phone {
-        width: min(100%, 240px);
-        min-height: 44px;
-    }
-}
