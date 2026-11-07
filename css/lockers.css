@@ -57,6 +57,9 @@
     width: fit-content;
     margin: 20px auto 0;
 }
+#reserve-btn{
+    cursor: pointer;
+}
 
 .buttons-container{
     display: flex;
@@ -92,4 +95,110 @@
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     margin: 0px 0px 20px 0px;
+}
+
+/* ! POP-UPS */
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 1000;
+    border: 2px solid var(--outline);
+    border-left: 4px solid var(--main);
+    border-top: 4px solid var(--main);
+    border-radius: 16px;
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 24px;
+    width: 700px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+.pop-up.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+.pop-up-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+.pop-up-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pop-up-head{
+    display: flex;
+    justify-content: space-between;
+}
+.pop-up-head p{
+    color: var(--main);
+    text-transform: uppercase;
+}
+.pop-up-head button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.pop-up-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reserve-text{
+    text-align: center;
+    margin-top: 50px;
+}
+#reserve-number{
+    text-align: center;
+    color: var(--main);
+    font-size: 100px;
+    margin: 0px;
+    margin-bottom: 50px;
+}
+
+#check-out{
+    cursor: pointer;
+}
+.check-out-input p{
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.small-pin-input{
+    width: 75px;
+    height: 95px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 80px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+.small-pin-input:focus{
+    outline: 2px solid var(--main);
+    caret-color: transparent;
+}
+#check-out-btn{
+    width: 250px;
+    cursor: pointer;
+    color: white;
+    background-color: var(--danger);
 }

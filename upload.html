@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/upload.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="widget upload-container">
+            <div class="upload-header">
+                <p class="widget-heading">Marathon Gallery</p>
+                <h1>Share Moments</h1>
+                <p>Select your favourite photos and share them with everyone.</p>
+            </div>
+
+            <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                multiple
+                hidden
+            >
+
+            <button type="button" class="upload-select-button" id="select-button">
+                + Select Photos
+            </button>
+
+            <div class="upload-preview-container" id="preview-container" hidden>
+                <div class="upload-preview-header">
+                    <p>Selected photos</p>
+                    <span id="image-count">0</span>
+                </div>
+
+                <div class="upload-preview-grid" id="preview-grid"></div>
+
+                <button type="button" class="upload-submit-button" id="upload-button">
+                    Upload Photos
+                </button>
+            </div>
+
+            <p class="upload-status" id="upload-status" aria-live="polite"></p>
+        </div>
+    </main>
+    <script src="scripts/upload.js"></script>
+</body>
+</html>

@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/gallery.css">
+
     <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -35,7 +38,7 @@
                 </div>
             </div>
             <div class="qr-code-container">
-                <img src="assets/icons/iconClose.svg" alt="QR Code">
+                <a href="upload.html"><img src="assets/icons/iconClose.svg" alt="QR Code"></a>
             </div>
         </div>
         <div class="widget gallery-hero-mobile"> <!-- MOBILE VERSION -->
@@ -65,12 +68,22 @@
                 <img src="assets/icons/iconClose.svg" alt="QR Code">
             </div>
         </div>
-        <div class="widget" id="gallery-showcase"> <!-- GALLERY -->
+        <div class="widget" id="gallery-showcase"> <!-- GALLERY 
             <div class="gallery-item tall"><img src="assets/img/bagDrop.png"></div>
             <div class="gallery-item"><img src="assets/img/warmUp.png"></div>
             <div class="gallery-item wide"><img src="assets/img/home.png"></div>
             <div class="gallery-item"><img src="assets/img/toilet.png"></div>
             <div class="gallery-item tall"><img src="assets/img/raceTag.png"></div>
+            -->
+        </div>
+
+        <!-- Image Modal-->
+        <div class="image-modal" id="image-modal">
+            <button class="image-modal-close" id="image-modal-close">
+                &times; CLOSE
+            </button>
+
+            <img id="modal-image" src="" alt="Expanded gallery image">
         </div>
     </main>
     <script src="scripts/gallery.js"></script>

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/lockers.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
+
     <title>Lockers</title>
 </head>
 <body>
@@ -21,7 +25,7 @@
                     <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
                 </div>
                 <div class="lockers-reserve">
-                    <button class="btn-sec">Reserve</button>
+                    <button class="btn-sec" id="reserve-btn">Reserve</button>
                 </div>
             </div>
             <div class="buttons-container">
@@ -42,5 +46,60 @@
             </div>
         </div>
     </main>
+
+    <div class="pop-up-overlay" id="popup-overlay"></div>
+
+    <div class="pop-up" id="reserved">
+        <div class="pop-up-head">
+            <p>LOCKER RESERVED</p>
+            <button id="close-popup-btn"><img src="assets/icons/iconClose.svg" alt="Close"></button>
+        </div>
+        <hr>
+        <div class="pop-up-body">
+            <p id="reserve-text">A locker is now reserved for you!</p>
+            <p id="reserve-number">XXX</p>
+        </div>
+    </div>
+
+    <div class="pop-up" id="cancel">
+        <div class="pop-up-head">
+            <p>CHECK OUT</p>
+            <button id="close-cancel-btn"><img src="assets/icons/iconClose.svg" alt="Close"></button>
+        </div>
+        <hr>
+        <div class="pop-up-body">
+            <div class="check-out-input">
+                <p>Locker Number</p>
+                <div class="locker-num-inputs" style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
+                    <input type="text" class="small-pin-input locker-num" maxlength="1" autocomplete="off" pattern="[0-9]">
+                    <input type="text" class="small-pin-input locker-num" maxlength="1" autocomplete="off" pattern="[0-9]">
+                    <input type="text" class="small-pin-input locker-num" maxlength="1" autocomplete="off" pattern="[0-9]">
+                </div>
+            </div>
+            <div class="check-out-input">
+                <p>Pin Code</p>
+                <div class="pin-inputs" style="display: flex; gap: 8px; justify-content: center; margin-bottom: 20px;">
+                    <input type="password" class="small-pin-input checkout-pin" maxlength="1" autocomplete="off" pattern="[0-9]">
+                    <input type="password" class="small-pin-input checkout-pin" maxlength="1" autocomplete="off" pattern="[0-9]">
+                    <input type="password" class="small-pin-input checkout-pin" maxlength="1" autocomplete="off" pattern="[0-9]">
+                    <input type="password" class="small-pin-input checkout-pin" maxlength="1" autocomplete="off" pattern="[0-9]">
+                </div>
+            </div>
+            <button class="btn-sec" id="check-out-btn">Check Out</button>
+        </div>
+    </div>
+
+    <div class="pop-up" id="cancel-success">
+        <div class="pop-up-head">
+            <p>LOCKER CANCELED</p>
+            <button id="close-success-btn"><img src="assets/icons/iconClose.svg" alt="Close"></button>
+        </div>
+        <hr>
+        <div class="pop-up-body">
+            <p id="cancel-text" style="text-align: center; margin: 40px 0;">Your locker reservation has been removed!</p>
+        </div>
+    </div>
+
+    <script src="scripts/lockers.js"></script>
 </body>
 </html>
