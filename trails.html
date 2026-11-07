@@ -3,197 +3,219 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Course Info | Copenhagen Marathon</title>
+    <title>Course Info | Copenhagen Marathon</title>
 
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="trails.css">
 
-  <!-- Trails CSS -->
-  <link rel="stylesheet" href="trails.css">
+    <script src="Javascript/shared.js" defer></script>
+    <script src="trails.js" defer></script>
 </head>
 
-<body class="trails-page">
+<body data-page="trails">
 
-  <main class="trails">
+    <!-- SHARED HEADER -->
+    <div id="site-header"></div>
 
-    <!-- ===================== -->
-    <!-- MARATHON TIMELINE -->
-    <!-- ===================== -->
+    <main class="trails-main">
 
-    <section class="timeline-section">
+        <!-- ================================= -->
+        <!-- ROUTE TIMELINE                    -->
+        <!-- ================================= -->
 
-      <h2 class="section-title">
-        ROUTE - 42,195 KILOMETERS
-      </h2>
+        <section class="route-timeline widget">
 
-      <div class="timeline">
+            <h2 class="route-heading">
+                ROUTE - 42,195 KILOMETERS
+            </h2>
 
-        <!-- Horizontal timeline line -->
-        <div class="timeline-line"></div>
+            <div class="timeline-stage">
 
-        <!-- Food icons above timeline -->
-        <div
-          class="food-stations"
-          id="foodStations">
-        </div>
+                <!-- GREY ROUTE LINE -->
+                <div class="timeline-track"></div>
 
-        <!-- Dynamic station markers -->
-        <div
-          class="timeline-markers"
-          id="timelineMarkers">
-        </div>
+                <!-- START -->
+                <div class="timeline-terminal timeline-start">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-tick"></div>
+                    <span>START</span>
+                </div>
 
-        <!-- START -->
-        <div class="timeline-endpoint timeline-start">
-          <span class="endpoint-dot"></span>
-          <span>START</span>
-        </div>
-
-        <!-- DISTANCES -->
-        <span
-          class="distance-label"
-          style="--position: 26.33%">
-          10
-        </span>
-
-        <span
-          class="distance-label"
-          style="--position: 47.66%">
-          20
-        </span>
-
-        <span
-          class="distance-label"
-          style="--position: 68.99%">
-          30
-        </span>
-
-        <!-- FINISH -->
-        <div class="timeline-endpoint timeline-finish">
-          <span class="endpoint-dot"></span>
-          <span>FINISH</span>
-        </div>
-
-      </div>
-    </section>
+                <!-- FINISH -->
+                <div class="timeline-terminal timeline-finish">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-tick"></div>
+                    <span>FINISH</span>
+                </div>
 
 
-    <!-- ===================== -->
-    <!-- MARATHON ROUTE MAP -->
-    <!-- ===================== -->
+                <!-- DISTANCE MARKERS -->
+                <div class="distance-marker" style="--position:25%">
+                    <span class="distance-tick"></span>
+                    <span>10</span>
+                </div>
 
-    <section class="map-section" aria-label="Route map">
+                <div class="distance-marker" style="--position:50%">
+                    <span class="distance-tick"></span>
+                    <span>20</span>
+                </div>
 
-      <div class="map-container">
+                <div class="distance-marker" style="--position:75%">
+                    <span class="distance-tick"></span>
+                    <span>30</span>
+                </div>
 
-        <!-- Figma route map -->
-        <!-- ROUTE MAP heading is already in the image -->
-        <img
-          src="assets/img/Route.jpeg"
-          alt="Copenhagen Marathon route map"
-          class="route-map"
+
+                <!-- FOOD STATION SYMBOLS -->
+                <div
+                    class="timeline-food-stop"
+                    style="--position:22%"
+                >
+                    <img
+                        src="assets/icons/iconFood.svg"
+                        alt="Food station"
+                    >
+                </div>
+
+                <div
+                    class="timeline-food-stop"
+                    style="--position:55%"
+                >
+                    <img
+                        src="assets/icons/iconFood.svg"
+                        alt="Food station"
+                    >
+                </div>
+
+                <div
+                    class="timeline-food-stop"
+                    style="--position:81%"
+                >
+                    <img
+                        src="assets/icons/iconFood.svg"
+                        alt="Food station"
+                    >
+                </div>
+
+
+                <!-- SELECTED STATION MARKERS -->
+                <div
+                    id="timelineStations"
+                    class="timeline-stations"
+                    aria-hidden="true"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- ROUTE MAP                         -->
+        <!-- ================================= -->
+
+        <section class="route-map-card">
+
+            <img
+                src="assets/img/Route.jpeg"
+                alt="Copenhagen Marathon course route"
+                class="route-map-image"
+            >
+
+            <h2 class="route-map-heading">
+                ROUTE MAP
+            </h2>
+
+            <!-- JS ADDS SELECTED STATION ICONS -->
+            <div
+                id="mapPins"
+                class="route-map-pins"
+                aria-hidden="true"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- STATION FILTERS                   -->
+        <!-- ================================= -->
+
+        <section
+            class="station-filters"
+            aria-label="Route station filters"
         >
 
-        <!-- Dynamic map markers -->
-        <div
-          class="map-markers"
-          id="mapMarkers"
-          aria-hidden="true">
-        </div>
+            <!-- WATER -->
+            <button
+                class="station-filter"
+                type="button"
+                data-filter="water"
+                aria-pressed="false"
+            >
 
-      </div>
+                <img
+                    src="assets/icons/iconWater.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
 
-    </section>
+                <span>WATER</span>
 
+                <span class="station-filter-circle"></span>
 
-    <!-- ===================== -->
-    <!-- FILTER BUTTONS -->
-    <!-- ===================== -->
-
-    <section
-      class="filter-section"
-      aria-label="Aid station filters">
-
-      <!-- WATER -->
-      <button
-        class="filter-button"
-        type="button"
-        data-filter="water"
-        aria-pressed="false">
-
-        <img
-          src="assets/icons/iconWater.svg"
-          alt=""
-          class="filter-icon">
-
-        <span class="filter-text">
-          WATER
-        </span>
-
-        <span
-          class="filter-circle"
-          aria-hidden="true">
-        </span>
-
-      </button>
+            </button>
 
 
-      <!-- SPORT DRINK -->
-      <button
-        class="filter-button"
-        type="button"
-        data-filter="drink"
-        aria-pressed="false">
+            <!-- SPORT DRINK -->
+            <button
+                class="station-filter is-active"
+                type="button"
+                data-filter="drink"
+                aria-pressed="true"
+            >
 
-        <img
-          src="assets/icons/iconDrink.svg"
-          alt=""
-          class="filter-icon">
+                <img
+                    src="assets/icons/iconDrink.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
 
-        <span class="filter-text">
-          SPORT DRINK
-        </span>
+                <span>SPORT DRINK</span>
 
-        <span
-          class="filter-circle"
-          aria-hidden="true">
-        </span>
+                <span class="station-filter-circle"></span>
 
-      </button>
+            </button>
 
 
-      <!-- FOOD -->
-      <button
-        class="filter-button"
-        type="button"
-        data-filter="food"
-        aria-pressed="false">
+            <!-- FOOD -->
+            <button
+                class="station-filter"
+                type="button"
+                data-filter="food"
+                aria-pressed="false"
+            >
 
-        <img
-          src="assets/icons/iconFood.svg"
-          alt=""
-          class="filter-icon">
+                <img
+                    src="assets/icons/iconFood.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
 
-        <span class="filter-text">
-          FOOD
-        </span>
+                <span>FOOD</span>
 
-        <span
-          class="filter-circle"
-          aria-hidden="true">
-        </span>
+                <span class="station-filter-circle"></span>
 
-      </button>
+            </button>
 
-    </section>
+        </section>
 
-  </main>
+    </main>
 
-  <!-- JavaScript -->
-  <script src="trails.js"></script>
+    <!-- SHARED FOOTER -->
+    <div id="site-footer"></div>
 
 </body>
 </html>

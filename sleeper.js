@@ -1,74 +1,62 @@
 
-/* ================================
-   COPENHAGEN MARATHON
-   SLEEPER PAGE JAVASCRIPT
-================================ */
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ==================================
+    // SLEEPER ELEMENTS
+    // ==================================
+
+    const enterButton = document.getElementById(
+        "enterKiosk"
+    );
+
+    const video = document.getElementById(
+        "sleeperVideo"
+    );
 
 
-/* HTML ELEMENTS */
+    // ==================================
+    // BACKGROUND VIDEO
+    // ==================================
 
-const enterButton =
-  document.getElementById("enterKiosk");
+    if (video) {
 
-const sleeperVideo =
-  document.getElementById("sleeperVideo");
+        video.muted = true;
+        video.loop = true;
 
+        const playPromise = video.play();
 
-/* ================================
-   BACKGROUND VIDEO
-================================ */
+        if (playPromise !== undefined) {
 
-// Video must stay muted for autoplay
-sleeperVideo.muted = true;
+            playPromise.catch(error => {
+                console.warn(
+                    "Video autoplay was prevented:",
+                    error
+                );
+            });
 
-// Attempt to play automatically
-function playBackgroundVideo() {
+        }
 
-  const playPromise = sleeperVideo.play();
-
-  if (playPromise !== undefined) {
-
-    playPromise.catch(function(error) {
-
-      console.warn(
-        "Background video could not autoplay:",
-        error
-      );
-
-    });
-
-  }
-
-}
-
-// Start video
-playBackgroundVideo();
+    }
 
 
-/* ================================
-   ENTER THE KIOSK
-================================ */
+    // ==================================
+    // ENTER THE KIOSK
+    // ==================================
 
-// User presses anywhere on the screen
+    function enterKiosk() {
 
-enterButton.addEventListener("click", function() {
+        window.location.href = "index.html";
 
-  // Open the Home page
-  window.location.href = "index.html";
-
-});
+    }
 
 
-/* ================================
-   RESUME VIDEO
-================================ */
+    if (enterButton) {
 
-// Resume video when returning to this tab
+        enterButton.addEventListener(
+            "click",
+            enterKiosk
+        );
 
-document.addEventListener("visibilitychange", function() {
-
-  if (!document.hidden) {
-    playBackgroundVideo();
-  }
+    }
 
 });

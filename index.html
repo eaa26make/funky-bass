@@ -1,14 +1,184 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/global.css">
+    <title>Copenhagen Marathon | Home</title>
 
-    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="index.css">
+
+    <script src="Javascript/shared.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
-<body>
-    
+
+<body data-page="home">
+
+    <!-- SHARED HEADER -->
+    <div id="site-header"></div>
+
+    <main class="home-page">
+
+        <!-- HERO SECTION -->
+        <section class="hero-area">
+
+            <img
+                class="hero-image"
+                src="assets/img/home-cropped.jpeg"
+                alt="Runners starting the Copenhagen Marathon"
+            >
+
+            <!-- COUNTDOWN AND WEATHER -->
+            <div class="status-section">
+
+                <div class="countdown" role="timer">
+
+                    <div class="time-unit">
+                        <div class="time-number" id="hours">01</div>
+                        <span class="time-label">HOURS</span>
+                    </div>
+
+                    <span class="time-colon">:</span>
+
+                    <div class="time-unit">
+                        <div class="time-number" id="minutes">23</div>
+                        <span class="time-label">MINUTES</span>
+                    </div>
+
+                    <span class="time-colon">:</span>
+
+                    <div class="time-unit">
+                        <div class="time-number" id="seconds">47</div>
+                        <span class="time-label">SECONDS</span>
+                    </div>
+
+                </div>
+
+                <!-- WEATHER -->
+                <div class="weather">
+
+                    <h2 class="weather-heading">
+                        CURRENT CONDITIONS
+                    </h2>
+
+                    <div class="weather-top">
+                        <span class="weather-city">Copenhagen</span>
+                        <span class="weather-temperature">8°</span>
+                    </div>
+
+                    <p class="weather-description">
+                        Showers in the Vicinity
+                    </p>
+
+                    <p class="weather-details">
+                        11° / 10° Feels like 6° · Tue, 09:03
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACCESS -->
+        <section class="home-content">
+
+            <h2 class="section-heading">QUICK ACCESS</h2>
+
+            <nav class="quick-access" aria-label="Quick access">
+
+                <a href="goodtoknow.html" class="access-card">
+
+                    <img
+                        src="assets/icons/iconGoodToKnow.svg"
+                        alt=""
+                        class="access-icon"
+                    >
+
+                    <div class="access-text">
+                        <h3 class="access-title">GOOD TO KNOW</h3>
+                        <p class="access-subtitle">RACE DAY PREP</p>
+                    </div>
+
+                </a>
+
+
+                <a href="trails.html" class="access-card">
+
+                    <img
+                        src="assets/icons/iconCourse.svg"
+                        alt=""
+                        class="access-icon"
+                    >
+
+                    <div class="access-text">
+                        <h3 class="access-title">COURSE INFO</h3>
+                        <p class="access-subtitle">ROUTE & DETAILS</p>
+                    </div>
+
+                </a>
+
+
+                <a href="lockers.html" class="access-card">
+
+                    <img
+                        src="assets/icons/iconLocker.svg"
+                        alt=""
+                        class="access-icon"
+                    >
+
+                    <div class="access-text">
+                        <h3 class="access-title">LOCKER</h3>
+                        <p class="access-subtitle">BAG DROP & STORAGE</p>
+                    </div>
+
+                </a>
+
+
+                <a href="gallery.html" class="access-card">
+
+                    <img
+                        src="assets/icons/iconPhotos.svg"
+                        alt=""
+                        class="access-icon"
+                    >
+
+                    <div class="access-text">
+                        <h3 class="access-title">PHOTOS</h3>
+                        <p class="access-subtitle">EVENT PHOTOS</p>
+                    </div>
+
+                </a>
+
+            </nav>
+
+
+            <!-- QR CODE -->
+            <div class="qr-card">
+
+                <img
+                    src="assets/img/QR code.jpeg"
+                    alt="QR code for the phone version"
+                    class="qr-image"
+                >
+
+                <div class="qr-text">
+                    SCAN FOR<br>
+                    PHONE VERSION
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- SHARED FOOTER -->
+    <div id="site-footer"></div>
+
 </body>
 </html>

@@ -1,56 +1,430 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
-/* VARIABLES */
-:root{
-    --main:             #FAE100;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300..700&display=swap');
 
-    --bg-light:         #fff;
-    --bg-dark:          #000;
-    --bg-sec:           #1A1A1A;
-    --danger:           #B91C1C;
 
-    --outline:          #EAEAEA;
+/* ====================================== */
+/* VARIABLES                              */
+/* ====================================== */
+
+:root {
+    --main: #FAE100;
+
+    --bg-light: #FFFFFF;
+    --bg-dark: #000000;
+    --bg-sec: #1A1A1A;
+
+    --outline: #EAEAEA;
+
+    --kiosk-width: 800px;
 }
 
-*, *::before, *::after {
+
+/* ====================================== */
+/* RESET                                  */
+/* ====================================== */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
-body{
-    font-family: "Inter", sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+
+html {
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+body {
+    width: 100%;
+    max-width: var(--kiosk-width);
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: var(--bg-light);
+    color: #111;
+
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
     font-family: "Space Grotesk", sans-serif;
 }
 
-main{
-    margin: 25px 25px 0px 25px;
+/* Preserve original margins for other team pages. */
+main:not(.home-page):not(.trails-main):not(.sleeper-screen) {
+    margin: 25px 25px 0;
 }
 
-/* COMPONENTS */
-.widget{
+
+/* ====================================== */
+/* EXISTING REUSABLE STYLES               */
+/* ====================================== */
+
+.widget {
     border: 2px solid var(--outline);
     border-left: 4px solid var(--main);
+
     border-radius: 16px;
-    padding: 16px 16px 20px 16px;
-    width: 100%;
+    padding: 16px 16px 20px;
 }
-.widget-heading{
+
+.widget-heading {
     font-family: "Inter", sans-serif;
     text-transform: uppercase;
     margin: 0;
 }
-.btn-sec{
-    background-color: var(--main);
-    border: none;
+
+.btn-sec {
+    background: var(--main);
     border-radius: 8px;
-    font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 16px 32px;
     color: black;
+}
+
+
+/* ====================================== */
+/* SHARED COMPONENT CONTAINERS            */
+/* ====================================== */
+
+#site-header,
+#site-footer {
+    width: 100%;
+}
+
+#site-header:empty,
+#site-footer:empty {
+    display: none;
+}
+
+
+/* ====================================== */
+/* HEADER                                 */
+/* ====================================== */
+
+.cm-header {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 26px 0 28px;
+
+    background: #000;
+    color: white;
+
+    border-left: 4px solid var(--main);
+}
+
+
+/* WORDMARK - LEFT SIDE */
+
+.cm-header__brand {
+    position: relative;
+
+    display: block;
+    width: 170px;
+    height: 56px;
+
+    flex-shrink: 0;
+    overflow: hidden;
+
+    text-decoration: none;
+}
+
+/*
+   The PNG has transparent empty space.
+   Offset the image so only its visible artwork
+   occupies the wordmark area.
+*/
+
+.cm-header__brand img {
+    position: absolute;
+
+    display: block;
+    width: 230px;
+    height: auto;
+    max-width: none;
+
+    left: -17px;
+    top: -26px;
+}
+
+
+/* PAGE TITLE - SUBPAGES */
+
+.cm-header__title {
+    margin: 0;
+
+    color: white;
+
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+
+/* MARATHON MARK - RIGHT SIDE */
+
+.cm-header__mark-window {
+    position: relative;
+
+    width: 90px;
+    height: 72px;
+
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.cm-header__mark {
+    position: absolute;
+
+    display: block;
+    width: 124px;
+    height: auto;
+    max-width: none;
+
+    left: -24px;
+    top: -19px;
+}
+
+
+/* ====================================== */
+/* HEADER VARIATIONS                      */
+/* ====================================== */
+
+body[data-page="home"] .cm-header__title {
+    display: none;
+}
+
+body:not([data-page="home"]) .cm-header__brand {
+    display: none;
+}
+
+
+/* ====================================== */
+/* FOOTER                                 */
+/* ====================================== */
+
+.cm-footer {
+    width: 100%;
+    min-height: 74px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 12px;
+    padding: 10px 18px;
+
+    background: #000;
+    color: white;
+
+    border-left: 4px solid var(--main);
+
+    font-family: "Inter", sans-serif;
+}
+
+
+/* HOME BUTTON */
+
+.cm-footer__home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    height: 39px;
+
+    gap: 8px;
+    padding: 0 13px;
+
+    background: var(--main);
+    color: #000;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cm-footer__home-icon {
+    width: 17px;
+    height: 17px;
+
+    object-fit: contain;
+}
+
+.cm-footer__home:hover {
+    background: #FFE933;
+}
+
+
+/* CENTER BRANDING */
+
+.cm-footer__branding {
+    color: #FFF;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* LANGUAGE SELECTOR */
+
+.cm-footer__languages {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* LANGUAGE BUTTONS */
+
+.cm-language-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 39px;
+
+    gap: 6px;
+    padding: 0 9px;
+
+    background: #1A1A1A;
+    color: #999;
+
+    border: 1px solid transparent;
+    border-radius: 25px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* FLAGS */
+
+.cm-flag {
+    display: block;
+
+    width: 28px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+
+/* ACTIVE LANGUAGE */
+
+.cm-language-btn.active {
+    color: var(--main);
+    border-color: var(--main);
+}
+
+.cm-language-btn:hover {
+    border-color: var(--main);
+}
+
+
+/* ====================================== */
+/* SLEEPER EXCEPTION                      */
+/* ====================================== */
+
+body[data-page="sleeper"] #site-header,
+body[data-page="sleeper"] #site-footer {
+    display: none;
+}
+
+
+/* ====================================== */
+/* RESPONSIVE SHARED COMPONENTS           */
+/* ====================================== */
+
+@media (max-width: 600px) {
+
+    .cm-header {
+        height: 80px;
+        padding: 0 16px;
+    }
+
+    .cm-header__title {
+        font-size: 18px;
+    }
+
+    .cm-header__brand {
+        transform: scale(0.85);
+        transform-origin: left center;
+    }
+
+    .cm-header__mark-window {
+        transform: scale(0.85);
+        transform-origin: right center;
+    }
+
+    .cm-footer {
+        min-height: 64px;
+        padding: 8px;
+        gap: 5px;
+    }
+
+    .cm-footer__home {
+        height: 34px;
+        padding: 0 9px;
+
+        gap: 5px;
+        font-size: 9px;
+    }
+
+    .cm-footer__home-icon {
+        width: 13px;
+        height: 13px;
+    }
+
+    .cm-footer__branding {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .cm-footer__languages {
+        gap: 5px;
+    }
+
+    .cm-language-btn {
+        height: 34px;
+        padding: 0 5px;
+
+        gap: 3px;
+        font-size: 9px;
+    }
+
+    .cm-flag {
+        width: 20px;
+        height: 15px;
+    }
+
 }

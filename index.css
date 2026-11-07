@@ -1,0 +1,533 @@
+
+/* ====================================== */
+/* HOME PAGE                              */
+/* ====================================== */
+
+body[data-page="home"] {
+    background: #FFFFFF;
+}
+
+.home-page {
+    width: 100%;
+    max-width: var(--kiosk-width);
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ====================================== */
+/* HERO IMAGE                             */
+/* ====================================== */
+
+.hero-area {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    height: 400px;
+
+    overflow: hidden;
+    background: #222;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* Preserves your corrected image crop */
+    object-position: 50% 43%;
+
+    filter: grayscale(100%);
+}
+
+
+/* ====================================== */
+/* STATUS WIDGETS                         */
+/* ====================================== */
+
+.status-section {
+    position: absolute;
+    z-index: 2;
+
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+
+    gap: 16px;
+}
+
+
+/* ====================================== */
+/* COUNTDOWN                              */
+/* ====================================== */
+
+.countdown {
+    width: 100%;
+    height: 142px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        18px
+        minmax(0, 1fr)
+        18px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 8px;
+    padding: 12px 15px;
+
+    background: #000;
+    border-radius: 10px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+    gap: 6px;
+}
+
+.time-number {
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1A1A1A;
+    color: var(--main);
+
+    border-radius: 9px;
+
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums;
+}
+
+.time-label {
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.time-colon {
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--main);
+
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+
+/* ====================================== */
+/* WEATHER                                */
+/* ====================================== */
+
+.weather {
+    width: 100%;
+    min-width: 0;
+    height: 142px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 13px 12px;
+
+    background: #1A1A1A;
+    color: #FFFFFF;
+
+    border-left: 4px solid var(--main);
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.weather-heading {
+    margin: 0 0 8px;
+
+    color: var(--main);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.weather-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 5px;
+    min-width: 0;
+}
+
+.weather-city {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.weather-temperature {
+    flex-shrink: 0;
+
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.weather-description {
+    margin: auto 0 8px;
+
+    color: #999;
+
+    font-size: 11px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.weather-details {
+    margin: 0;
+
+    color: #CCC;
+
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.15px;
+    white-space: nowrap;
+}
+
+
+/* ====================================== */
+/* MAIN CONTENT                           */
+/* ====================================== */
+
+.home-content {
+    width: 100%;
+
+    padding: 42px 30px 22px;
+
+    background: #FFF;
+}
+
+.section-heading {
+    margin: 0 0 9px;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+
+/* ====================================== */
+/* QUICK ACCESS GRID                      */
+/* ====================================== */
+
+.quick-access {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px 16px;
+}
+
+
+/* ====================================== */
+/* QUICK ACCESS CARDS                     */
+/* ====================================== */
+
+.access-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 145px;
+    min-width: 0;
+
+    gap: 16px;
+    padding: 16px 15px 16px 20px;
+
+    background: white;
+    color: #111;
+
+    border: 2px solid var(--outline);
+    border-radius: 16px;
+
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.access-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 4px;
+    background: var(--main);
+}
+
+.access-icon {
+    display: block;
+
+    width: 67px;
+    height: 67px;
+
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.access-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+.access-title {
+    margin: 0;
+
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.9px;
+    white-space: nowrap;
+}
+
+.access-subtitle {
+    margin: 4px 0 0;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+}
+
+.access-card:hover {
+    background: #FAFAFA;
+}
+
+.access-card:focus-visible {
+    outline: 3px solid var(--main);
+    outline-offset: 3px;
+}
+
+
+/* ====================================== */
+/* QR CODE                                */
+/* ====================================== */
+
+.qr-card {
+    position: relative;
+
+    width: 100%;
+    height: 225px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 15px;
+    padding: 20px 30px;
+
+    background: white;
+
+    border: 2px solid var(--outline);
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.qr-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 4px;
+    background: var(--main);
+}
+
+.qr-image {
+    display: block;
+
+    width: 175px;
+    height: 175px;
+
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.qr-text {
+    flex: 1;
+
+    color: black;
+
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+    text-align: center;
+}
+
+
+/* ====================================== */
+/* RESPONSIVE                            */
+/* ====================================== */
+
+@media (max-width: 799px) {
+
+    .hero-area {
+        height: 50vw;
+    }
+
+    .status-section {
+        left: 1.75vw;
+        right: 1.75vw;
+        bottom: 1.75vw;
+        gap: 2vw;
+    }
+
+    .countdown,
+    .weather {
+        height: 17.75vw;
+    }
+
+    .countdown {
+        grid-template-columns:
+            minmax(0, 1fr)
+            2.25vw
+            minmax(0, 1fr)
+            2.25vw
+            minmax(0, 1fr);
+
+        gap: 1vw;
+        padding: 1.5vw 1.875vw;
+    }
+
+    .time-number {
+        height: 9.75vw;
+        font-size: 7.5vw;
+    }
+
+    .time-label {
+        font-size: 1.5vw;
+        letter-spacing: 0.125vw;
+    }
+
+    .time-colon {
+        height: 9.75vw;
+        font-size: 5.75vw;
+    }
+
+    .weather {
+        padding: 1.625vw 1.5vw;
+    }
+
+    .weather-heading {
+        font-size: 1.375vw;
+        margin-bottom: 1vw;
+        letter-spacing: 0.075vw;
+    }
+
+    .weather-city {
+        font-size: 1.625vw;
+    }
+
+    .weather-temperature {
+        font-size: 3.5vw;
+    }
+
+    .weather-description {
+        font-size: 1.375vw;
+        margin-bottom: 1vw;
+    }
+
+    .weather-details {
+        font-size: 1.25vw;
+    }
+
+    .home-content {
+        padding: 5.25vw 3.75vw 2.75vw;
+    }
+
+    .section-heading {
+        font-size: 1.5vw;
+    }
+
+    .quick-access {
+        gap: 1.875vw 2vw;
+    }
+
+    .access-card {
+        height: 18.125vw;
+        gap: 2vw;
+        padding: 2vw 1.875vw 2vw 2.5vw;
+    }
+
+    .access-icon {
+        width: 8.375vw;
+        height: 8.375vw;
+    }
+
+    .access-title {
+        font-size: 3.375vw;
+        letter-spacing: -0.1125vw;
+    }
+
+    .access-subtitle {
+        font-size: 1.375vw;
+    }
+
+    .qr-card {
+        height: 28.125vw;
+        padding: 2.5vw 3.75vw;
+        gap: 3.75vw;
+    }
+
+    .qr-image {
+        width: 21.875vw;
+        height: 21.875vw;
+    }
+
+    .qr-text {
+        font-size: 4vw;
+    }
+}
