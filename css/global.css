@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
 /* ====================================== */
 /* VARIABLES                              */
@@ -12,6 +11,7 @@
     --bg-light: #FFFFFF;
     --bg-dark: #000000;
     --bg-sec: #1A1A1A;
+    --danger: #B91C1C;
 
     --outline: #EAEAEA;
 
@@ -51,9 +51,8 @@ h1 {
     font-family: "Space Grotesk", sans-serif;
 }
 
-/* Preserve original margins for other team pages. */
-main:not(.home-page):not(.trails-main):not(.sleeper-screen) {
-    margin: 25px 25px 0;
+main{
+    margin: 25px 25px 0px 25px;
 }
 
 
@@ -67,6 +66,8 @@ main:not(.home-page):not(.trails-main):not(.sleeper-screen) {
 
     border-radius: 16px;
     padding: 16px 16px 20px;
+
+    width: 100%;
 }
 
 .widget-heading {
@@ -76,8 +77,14 @@ main:not(.home-page):not(.trails-main):not(.sleeper-screen) {
 }
 
 .btn-sec {
-    background: var(--main);
+    background-color: var(--main);
+    border: none;
     border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 16px 32px;
     color: black;
 }
 
