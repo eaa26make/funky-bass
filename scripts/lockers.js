@@ -10,13 +10,17 @@ const popupOverlay = document.getElementById('popup-overlay');
 const reservedPopup = document.getElementById('reserved');
 const cancelPopup = document.getElementById('cancel');
 const cancelSuccessPopup = document.getElementById('cancel-success');
+const howToPopup = document.getElementById('how-to'); // Added help popup ref
 
 //! BUTTONS
 const closePopupBtn = document.getElementById('close-popup-btn');
 const closeCancelBtn = document.getElementById('close-cancel-btn');
 const closeSuccessBtn = document.getElementById('close-success-btn');
+const closeHelpBtn = document.getElementById('close-help-btn'); // Added help close ref
 const checkOutMainBtn = document.getElementById('check-out');
+const helpMainBtn = document.getElementById('help'); // Added main help widget ref
 const executeCheckOutBtn = document.getElementById('check-out-btn');
+const callHelpBtn = document.getElementById('call-help-btn'); // Added call for help button ref
 
 const reserveNumberText = document.getElementById('reserve-number');
 
@@ -47,6 +51,7 @@ function hideAllPopups() {
     reservedPopup.classList.remove('active');
     cancelPopup.classList.remove('active');
     cancelSuccessPopup.classList.remove('active');
+    howToPopup.classList.remove('active'); // Hide help popup too
     popupOverlay.classList.remove('active');
 }
 
@@ -54,6 +59,7 @@ function hideAllPopups() {
 closePopupBtn.addEventListener('click', hideAllPopups);
 closeCancelBtn.addEventListener('click', hideAllPopups);
 closeSuccessBtn.addEventListener('click', hideAllPopups);
+closeHelpBtn.addEventListener('click', hideAllPopups); // Close help listener
 popupOverlay.addEventListener('click', hideAllPopups);
 
 // Open Check-Out Popup when clicking the Check Out widget on the main page
@@ -64,6 +70,21 @@ checkOutMainBtn.addEventListener('click', () => {
     cancelPopup.classList.add('active');
     popupOverlay.classList.add('active');
 });
+
+// Open Help Popup when clicking the Help widget on the main page
+helpMainBtn.addEventListener('click', () => {
+    hideAllPopups();
+    howToPopup.classList.add('active');
+    popupOverlay.classList.add('active');
+});
+
+// Optional: Action for "Call for help" button inside the help modal
+if (callHelpBtn) {
+    callHelpBtn.addEventListener('click', () => {
+        alert('An employee has been notified and will be with you shortly! 🦺🔔');
+        hideAllPopups();
+    });
+}
 
 // Handle Reservation
 reserveBtn.addEventListener('click', async () => {
@@ -76,25 +97,20 @@ reserveBtn.addEventListener('click', async () => {
 
     try {
         const resultList = await pb.collection('marathonLockers').getList(1, 100, {
-            sort: '-number',
+            sort: 'number',
         });
 
-        let targetLocker = resultList.items.find(locker => !locker.pin || locker.pin === "");
-        let updatedLocker;
+        const existingNumbers = resultList.items.map(locker => Number(locker.number));
 
-        if (targetLocker) {
-            updatedLocker = await pb.collection('marathonLockers').update(targetLocker.id, {
-                pin: pin
-            });
-        } else {
-            const highestNumber = resultList.items.length > 0 ? Number(resultList.items[0].number) || 0 : 0;
-            const nextNumber = highestNumber + 1;
-
-            updatedLocker = await pb.collection('marathonLockers').create({
-                number: nextNumber,
-                pin: pin
-            });
+        let nextAvailableNumber = 1;
+        while (existingNumbers.includes(nextAvailableNumber)) {
+            nextAvailableNumber++;
         }
+
+        const updatedLocker = await pb.collection('marathonLockers').create({
+            number: nextAvailableNumber,
+            pin: pin
+        });
 
         reserveNumberText.textContent = String(updatedLocker.number).padStart(3, '0');
         hideAllPopups();
@@ -104,8 +120,8 @@ reserveBtn.addEventListener('click', async () => {
         pinInputs.forEach(i => i.value = '');
 
     } catch (err) {
-        console.error('Reservation error:', err);
-        alert('Failed to reserve locker. Please try again.');
+        console.error('Reservation error:', err.data || err);
+        alert('Failed to reserve locker: ' + (err.message || 'Check console'));
     }
 });
 
@@ -127,7 +143,6 @@ executeCheckOutBtn.addEventListener('click', async () => {
     const targetNumber = Number(lockerNumInput);
 
     try {
-        // Find the specific locker number in the database
         const matchingLockers = await pb.collection('marathonLockers').getList(1, 1, {
             filter: `number = ${targetNumber}`
         });
@@ -139,16 +154,13 @@ executeCheckOutBtn.addEventListener('click', async () => {
 
         const locker = matchingLockers.items[0];
 
-        // Verify PIN
         if (String(locker.pin).trim() !== String(pinInput).trim()) {
             alert('Incorrect PIN for this locker.');
             return;
         }
 
-        // Delete the record from PocketBase!
         await pb.collection('marathonLockers').delete(locker.id);
 
-        // Hide checkout modal and show success modal
         hideAllPopups();
         cancelSuccessPopup.classList.add('active');
         popupOverlay.classList.add('active');
