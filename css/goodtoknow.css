@@ -1,3 +1,4 @@
+
 /* Kiosk version */
 body {
     min-height: 100vh;
@@ -7,25 +8,25 @@ body {
 main {
     padding-block: 5px;
 }
-
+/* Each widget */
 .bag-drop .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/bagDrop.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/bagDrop.png");
 }
 
 .fuel .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/fuelWater.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/fuelWater.png");
 }
 
 .race-tag .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/raceTag.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/raceTag.png");
 }
 
 .warm-up .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/warmUp.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/warmUp.png");
 }
 
 .toilets .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/toilet.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/toilet.png");
 }
 
 .widget {
