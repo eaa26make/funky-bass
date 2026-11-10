@@ -1,35 +1,31 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // =====================================
     // ELEMENTS
+    // =====================================
 
     const buttons = document.querySelectorAll(
         ".station-filter"
-    );
-
-    const timelineContainer = document.getElementById(
-        "timelineStations"
     );
 
     const mapContainer = document.getElementById(
         "mapPins"
     );
 
-    if (!timelineContainer || !mapContainer) {
+    if (!mapContainer) {
         return;
     }
 
-
-    // ORIGINAL STATION DATA
+    // =====================================
+    // STATION DATA
+    // =====================================
 
     const stationData = {
 
+        // WATER
         water: {
             icon: "assets/icons/iconWater.svg",
-
-            timeline: [
-                13, 25, 36, 47, 58, 69, 80, 90
-            ],
 
             map: [
                 [27, 39],
@@ -43,13 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
 
+        // SPORT DRINK
         drink: {
             icon: "assets/icons/iconDrink.svg",
-
-            timeline: [
-                13, 22, 31, 39, 47,
-                55, 62, 72, 82, 87
-            ],
 
             map: [
                 [57, 11],
@@ -65,57 +57,49 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
 
+        // FOOD
         food: {
             icon: "assets/icons/iconFood.svg",
-
-            timeline: [
-                22, 55, 81
-            ],
 
             map: [
                 [33, 42],
                 [54, 63],
                 [62, 73]
             ]
+        },
+
+        // TOILET
+        // Temporary example positions.
+        // Replace with verified locations.
+        toilet: {
+            icon: "assets/icons/iconToilet.svg",
+
+            map: [
+                [34, 43],
+                [56, 57],
+                [63, 78],
+                [43, 90]
+            ]
         }
     };
 
+    // =====================================
+    // CURRENT SELECTION
+    // =====================================
 
-    // RENDER TIMELINE MARKERS
+    let selectedFilter = null;
 
-    function renderTimeline(type) {
-
-        timelineContainer.innerHTML = "";
-
-        const data = stationData[type];
-
-        data.timeline.forEach(position => {
-
-            const marker = document.createElement("div");
-
-            marker.className = "timeline-station";
-
-            marker.style.setProperty(
-                "--position",
-                `${position}%`
-            );
-
-            const icon = document.createElement("img");
-
-            icon.src = data.icon;
-            icon.alt = "";
-
-            marker.appendChild(icon);
-            timelineContainer.appendChild(marker);
-        });
-    }
-
-
+    // =====================================
     // RENDER MAP PINS
+    // =====================================
 
     function renderMap(type) {
 
         mapContainer.innerHTML = "";
+
+        if (!type || !stationData[type]) {
+            return;
+        }
 
         const data = stationData[type];
 
@@ -125,8 +109,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
             pin.className = "map-pin";
 
-            pin.style.setProperty("--x", `${x}%`);
-            pin.style.setProperty("--y", `${y}%`);
+            /*
+                The route image is displayed at
+                75% width, beginning at 11.5%.
+
+                Convert the original image-relative
+                X coordinates to map-card coordinates.
+            */
+
+            const adjustedX = 11.5 + x * 0.75;
+
+            pin.style.setProperty(
+                "--x",
+                `${adjustedX}%`
+            );
+
+            pin.style.setProperty(
+                "--y",
+                `${y}%`
+            );
 
             const icon = document.createElement("img");
 
@@ -138,14 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-    // CHANGE SELECTED FILTER
+    // =====================================
+    // UPDATE FILTER SELECTION
+    // =====================================
 
     function selectFilter(type) {
 
-        if (!stationData[type]) {
+        if (type !== null && !stationData[type]) {
             return;
         }
+
+        selectedFilter = type;
 
         buttons.forEach(button => {
 
@@ -163,24 +167,32 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
-        renderTimeline(type);
         renderMap(type);
     }
 
-
-    // BUTTON EVENTS
+    // =====================================
+    // CLICK EVENTS
+    // =====================================
 
     buttons.forEach(button => {
 
         button.addEventListener("click", () => {
 
-            selectFilter(button.dataset.filter);
+            const type = button.dataset.filter;
+
+            if (selectedFilter === type) {
+                selectFilter(null);
+            } else {
+                selectFilter(type);
+            }
         });
     });
 
+    // =====================================
+    // INITIAL STATE
+    // =====================================
 
-    // DEFAULT SELECTION
-
-    selectFilter("drink");
+    // No station selected on page load.
+    selectFilter(null);
 
 });

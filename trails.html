@@ -4,124 +4,58 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Course Map | Copenhagen Marathon</title>
 
-    <title>Course Info | Copenhagen Marathon</title>
-
+    <!-- CORRECT CSS PATHS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/trails.css">
 
+    <!-- CORRECT JAVASCRIPT PATHS -->
     <script src="scripts/shared.js" defer></script>
     <script src="scripts/trails.js" defer></script>
 </head>
 
-<body data-page="trails">
+<body data-page="trails" data-header-title="COURSE MAP">
 
     <!-- SHARED HEADER -->
     <div id="site-header"></div>
 
     <main class="trails-main">
 
-        <!-- ROUTE TIMELINE -->
-        <section class="route-timeline widget">
-
-            <h2 class="route-heading">
-                ROUTE - 42,195 KILOMETERS
-            </h2>
-
-            <div class="timeline-stage">
-
-                <div class="timeline-track"></div>
-
-                <!-- START -->
-                <div class="timeline-terminal timeline-start">
-                    <div class="terminal-dot"></div>
-                    <div class="terminal-tick"></div>
-                    <span>START</span>
-                </div>
-
-                <!-- FINISH -->
-                <div class="timeline-terminal timeline-finish">
-                    <div class="terminal-dot"></div>
-                    <div class="terminal-tick"></div>
-                    <span>FINISH</span>
-                </div>
-
-                <!-- DISTANCE MARKERS -->
-                <div
-                    class="distance-marker"
-                    style="--position:25%"
-                >
-                    <span class="distance-tick"></span>
-                    <span>10</span>
-                </div>
-
-                <div
-                    class="distance-marker"
-                    style="--position:50%"
-                >
-                    <span class="distance-tick"></span>
-                    <span>20</span>
-                </div>
-
-                <div
-                    class="distance-marker"
-                    style="--position:75%"
-                >
-                    <span class="distance-tick"></span>
-                    <span>30</span>
-                </div>
-
-                <!-- FOOD STATIONS -->
-                <div
-                    class="timeline-food-stop"
-                    style="--position:22%"
-                >
-                    <img
-                        src="assets/icons/iconFood.svg"
-                        alt="Food station"
-                    >
-                </div>
-
-                <div
-                    class="timeline-food-stop"
-                    style="--position:55%"
-                >
-                    <img
-                        src="assets/icons/iconFood.svg"
-                        alt="Food station"
-                    >
-                </div>
-
-                <div
-                    class="timeline-food-stop"
-                    style="--position:81%"
-                >
-                    <img
-                        src="assets/icons/iconFood.svg"
-                        alt="Food station"
-                    >
-                </div>
-
-                <!-- DYNAMIC TIMELINE MARKERS -->
-                <div
-                    id="timelineStations"
-                    class="timeline-stations"
-                    aria-hidden="true"
-                ></div>
-
-            </div>
+        <!-- ROUTE TITLE -->
+        <section class="route-title-card">
+            <h1>ROUTE - 42,195 KILOMETERS</h1>
         </section>
 
+        <!-- COURSE MAP -->
+        <section class="route-map-card" aria-label="Marathon course map">
 
-        <!-- INTERACTIVE STATION SELECTIONS -->
+            <img
+                src="assets/img/Route.jpeg"
+                alt="Map of the Copenhagen Marathon route"
+                class="route-map-image"
+            >
+
+            <h2 class="route-map-heading">ROUTE MAP</h2>
+
+            <!-- RED STARTING POINT -->
+            <div class="route-start-point" aria-hidden="true"></div>
+
+            <!-- INTERACTIVE STATION ICONS -->
+            <div
+                id="mapPins"
+                class="route-map-pins"
+                aria-hidden="true"
+            ></div>
+
+        </section>
+
+        <!-- STATION FILTERS -->
         <section
             class="station-filters"
-            aria-label="Route station filters"
+            aria-label="Select facilities along the route"
         >
 
             <!-- WATER -->
@@ -137,7 +71,9 @@
                     class="station-filter-icon"
                 >
 
-                <span>WATER</span>
+                <span class="station-filter-label">
+                    WATER
+                </span>
 
                 <span class="station-filter-circle"></span>
             </button>
@@ -145,9 +81,9 @@
             <!-- SPORT DRINK -->
             <button
                 type="button"
-                class="station-filter is-active"
+                class="station-filter"
                 data-filter="drink"
-                aria-pressed="true"
+                aria-pressed="false"
             >
                 <img
                     src="assets/icons/iconDrink.svg"
@@ -155,7 +91,9 @@
                     class="station-filter-icon"
                 >
 
-                <span>SPORT DRINK</span>
+                <span class="station-filter-label">
+                    SPORT DRINK
+                </span>
 
                 <span class="station-filter-circle"></span>
             </button>
@@ -173,33 +111,32 @@
                     class="station-filter-icon"
                 >
 
-                <span>FOOD</span>
+                <span class="station-filter-label">
+                    FOOD
+                </span>
 
                 <span class="station-filter-circle"></span>
             </button>
 
-        </section>
-
-
-        <!-- INTERACTIVE ROUTE MAP -->
-        <section class="route-map-card">
-
-            <img
-                src="assets/img/Route.jpeg"
-                alt="Copenhagen Marathon course route"
-                class="route-map-image"
+            <!-- TOILET -->
+            <button
+                type="button"
+                class="station-filter"
+                data-filter="toilet"
+                aria-pressed="false"
             >
+                <img
+                    src="assets/icons/iconToilet.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
 
-            <h2 class="route-map-heading">
-                ROUTE MAP
-            </h2>
+                <span class="station-filter-label">
+                    TOILET
+                </span>
 
-            <!-- JS ADDS SELECTED STATION PINS -->
-            <div
-                id="mapPins"
-                class="route-map-pins"
-                aria-hidden="true"
-            ></div>
+                <span class="station-filter-circle"></span>
+            </button>
 
         </section>
 
