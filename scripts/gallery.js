@@ -2,7 +2,46 @@
 const pb = new PocketBase('https://pocketbase-production-2d55.up.railway.app');
 pb.autoCancellation(false);
 
-// Fetching Images
+// IMAGE MODAL
+const imageModal = document.getElementById('image-modal');
+const modalImage = document.getElementById('modal-image');
+const closeModal = document.getElementById('image-modal-close');
+
+// Open modal
+function openImageModal(imageUrl, altText) {
+    modalImage.src = imageUrl;
+    modalImage.alt = altText;
+
+    imageModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close modal
+function closeImageModal() {
+    imageModal.classList.remove('active');
+    modalImage.src = '';
+
+    document.body.style.overflow = '';
+}
+
+// Close button
+closeModal.addEventListener('click', closeImageModal);
+
+// Click outside image
+imageModal.addEventListener('click', (event) => {
+    if (event.target === imageModal) {
+        closeImageModal();
+    }
+});
+
+// Escape key
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && imageModal.classList.contains('active')) {
+        closeImageModal();
+    }
+});
+
+// FETCHING IMAGES
 async function fetchImages() {
     const showcase = document.getElementById('gallery-showcase');
 
@@ -27,11 +66,21 @@ async function fetchImages() {
             item.className = 'gallery-item';
 
             const randomChoice = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+
             if (randomChoice) {
                 item.classList.add(randomChoice);
             }
 
-            item.innerHTML = `<img src="${imageUrl}" alt="Marathon Photo">`;
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Marathon Photo';
+
+            // OPEN MODAL WHEN IMAGE IS CLICKED
+            img.addEventListener('click', () => {
+                openImageModal(imageUrl, img.alt);
+            });
+
+            item.appendChild(img);
             showcase.appendChild(item);
         });
 

@@ -6,179 +6,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Copenhagen Marathon | Home</title>
+    <title>Welcome | Copenhagen Marathon</title>
 
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/sleeper.css">
 
-    <script src="Javascript/shared.js" defer></script>
-    <script src="index.js" defer></script>
+    <script src="scripts/sleeper.js" defer></script>
 </head>
 
-<body data-page="home">
+<body class="sleeper-page" data-page="sleeper">
 
-    <!-- SHARED HEADER -->
-    <div id="site-header"></div>
+    <main class="sleeper-screen">
 
-    <main class="home-page">
+        <!-- ================================= -->
+        <!-- BACKGROUND VIDEO                  -->
+        <!-- ================================= -->
 
-        <!-- HERO SECTION -->
-        <section class="hero-area">
-
-            <img
-                class="hero-image"
-                src="assets/img/home-cropped.jpeg"
-                alt="Runners starting the Copenhagen Marathon"
+        <video
+            class="sleeper-video"
+            id="sleeperVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="assets/img/Sleeperpage.mov"
+                type="video/quicktime"
             >
-
-            <!-- COUNTDOWN AND WEATHER -->
-            <div class="status-section">
-
-                <div class="countdown" role="timer">
-
-                    <div class="time-unit">
-                        <div class="time-number" id="hours">01</div>
-                        <span class="time-label">HOURS</span>
-                    </div>
-
-                    <span class="time-colon">:</span>
-
-                    <div class="time-unit">
-                        <div class="time-number" id="minutes">23</div>
-                        <span class="time-label">MINUTES</span>
-                    </div>
-
-                    <span class="time-colon">:</span>
-
-                    <div class="time-unit">
-                        <div class="time-number" id="seconds">47</div>
-                        <span class="time-label">SECONDS</span>
-                    </div>
-
-                </div>
-
-                <!-- WEATHER -->
-                <div class="weather">
-
-                    <h2 class="weather-heading">
-                        CURRENT CONDITIONS
-                    </h2>
-
-                    <div class="weather-top">
-                        <span class="weather-city">Copenhagen</span>
-                        <span class="weather-temperature">8°</span>
-                    </div>
-
-                    <p class="weather-description">
-                        Showers in the Vicinity
-                    </p>
-
-                    <p class="weather-details">
-                        11° / 10° Feels like 6° · Tue, 09:03
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
+        </video>
 
 
-        <!-- QUICK ACCESS -->
-        <section class="home-content">
-
-            <h2 class="section-heading">QUICK ACCESS</h2>
-
-            <nav class="quick-access" aria-label="Quick access">
-
-                <a href="goodtoknow.html" class="access-card">
-
-                    <img
-                        src="assets/icons/iconGoodToKnow.svg"
-                        alt=""
-                        class="access-icon"
-                    >
-
-                    <div class="access-text">
-                        <h3 class="access-title">GOOD TO KNOW</h3>
-                        <p class="access-subtitle">RACE DAY PREP</p>
-                    </div>
-
-                </a>
+        <!-- DARK VIDEO OVERLAY -->
+        <div class="sleeper-overlay"></div>
 
 
-                <a href="trails.html" class="access-card">
+        <!-- ================================= -->
+        <!-- MAIN CONTENT                      -->
+        <!-- ================================= -->
 
-                    <img
-                        src="assets/icons/iconCourse.svg"
-                        alt=""
-                        class="access-icon"
-                    >
+        <div class="sleeper-content">
 
-                    <div class="access-text">
-                        <h3 class="access-title">COURSE INFO</h3>
-                        <p class="access-subtitle">ROUTE & DETAILS</p>
-                    </div>
+            <!-- COPENHAGEN MARATHON TITLE -->
+            <h1 class="sleeper-title">
 
-                </a>
+                <span>COPENHAGEN</span>
 
+                <span>
+                    MARATHON<sup>®</sup>
+                </span>
 
-                <a href="lockers.html" class="access-card">
-
-                    <img
-                        src="assets/icons/iconLocker.svg"
-                        alt=""
-                        class="access-icon"
-                    >
-
-                    <div class="access-text">
-                        <h3 class="access-title">LOCKER</h3>
-                        <p class="access-subtitle">BAG DROP & STORAGE</p>
-                    </div>
-
-                </a>
+            </h1>
 
 
-                <a href="gallery.html" class="access-card">
-
-                    <img
-                        src="assets/icons/iconPhotos.svg"
-                        alt=""
-                        class="access-icon"
-                    >
-
-                    <div class="access-text">
-                        <h3 class="access-title">PHOTOS</h3>
-                        <p class="access-subtitle">EVENT PHOTOS</p>
-                    </div>
-
-                </a>
-
-            </nav>
-
-
-            <!-- QR CODE -->
-            <div class="qr-card">
+            <!-- OFFICIAL MARATHON LOGO MARK -->
+            <div class="sleeper-mark-window">
 
                 <img
-                    src="assets/img/QR code.jpeg"
-                    alt="QR code for the phone version"
-                    class="qr-image"
+                    src="assets/img/copenhagen-marathon-logo-mark.png"
+                    alt=""
+                    class="sleeper-logo"
                 >
 
-                <div class="qr-text">
-                    SCAN FOR<br>
-                    PHONE VERSION
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- PRESS THE SCREEN                  -->
+            <!-- ================================= -->
+
+            <div class="sleeper-instruction">
+
+                <h2>PRESS THE SCREEN</h2>
+
+                <!-- YELLOW LINE -->
+                <div class="sleeper-line"></div>
+
+
+                <!-- ANIMATED TOUCH BUTTON -->
+                <div class="touch-circle">
+
+                    <div class="touch-circle-inner">
+
+                        <div class="touch-dot"></div>
+
+                    </div>
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- CLICKABLE SCREEN                   -->
+        <!-- ================================= -->
+
+        <button
+            class="sleeper-enter"
+            id="enterKiosk"
+            type="button"
+            aria-label="Press to enter the Copenhagen Marathon kiosk"
+        ></button>
 
     </main>
-
-    <!-- SHARED FOOTER -->
-    <div id="site-footer"></div>
 
 </body>
 </html>

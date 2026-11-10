@@ -1,3 +1,4 @@
+
 /* Kiosk version */
 body {
     min-height: 100vh;
@@ -7,25 +8,25 @@ body {
 main {
     padding-block: 5px;
 }
-
+/* Each widget */
 .bag-drop .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/bagDrop.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/bagDrop.png");
 }
 
 .fuel .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/fuelWater.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/fuelWater.png");
 }
 
 .race-tag .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/raceTag.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/raceTag.png");
 }
 
 .warm-up .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/warmUp.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/warmUp.png");
 }
 
 .toilets .widget {
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/img/toilet.png");
+   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/toilet.png");
 }
 
 .widget {
@@ -132,4 +133,95 @@ main {
     line-height: 3;
     text-align: center;
 }
+
 /* Phone version */
+@media screen and (max-width: 480px) {
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    main {
+        padding: 5px 15px 20px;
+    }
+
+    /* Each widget */
+    .widget {
+        width: 100%;
+        margin-top: 15px;
+        border-radius: 8px;
+    }
+
+    /* Widget title area */
+    .widget summary {
+        min-height: 140px;
+        height: auto;
+        padding: 18px 45px 45px 18px;
+        display: grid;
+        align-content: center;
+        gap: 5px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* Widget headings */
+    .widget summary h2 {
+        font-size: 42px;
+        line-height: 1.1;
+        margin: 0;
+    }
+
+    /* Widget descriptions */
+    .widget summary p {
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Dropdown arrow */
+    .arrow {
+        width: 32px;
+        height: 32px;
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .arrow::before {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Arrow when widget is open */
+    .widget[open] .arrow::before {
+        transform: rotate(225deg);
+    }
+
+    /* Dropdown content */
+    .dropdown-content {
+        padding: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .widget[open] .dropdown-content {
+        padding: 15px;
+    }
+
+    /* Locker button */
+    .locker-button {
+        width: min(195px, 100%);
+        height: 42px;
+        margin-top: 12px;
+        font-size: 15px;
+        gap: 6px;
+    }
+
+    /* Locker button arrow */
+    .locker-button-arrow {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+}
