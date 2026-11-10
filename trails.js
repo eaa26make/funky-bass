@@ -1,9 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ==================================
     // ELEMENTS
-    // ==================================
 
     const buttons = document.querySelectorAll(
         ".station-filter"
@@ -22,14 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ==================================
-    // STATION DATA
-    // ==================================
+    // ORIGINAL STATION DATA
 
     const stationData = {
 
         water: {
-
             icon: "assets/icons/iconWater.svg",
 
             timeline: [
@@ -46,11 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 [53, 77],
                 [57, 13]
             ]
-
         },
 
         drink: {
-
             icon: "assets/icons/iconDrink.svg",
 
             timeline: [
@@ -70,29 +63,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 [40, 90],
                 [32, 85]
             ]
-
         },
 
         food: {
-
             icon: "assets/icons/iconFood.svg",
 
-            timeline: [22, 55, 81],
+            timeline: [
+                22, 55, 81
+            ],
 
             map: [
                 [33, 42],
                 [54, 63],
                 [62, 73]
             ]
-
         }
-
     };
 
 
-    // ==================================
-    // CREATE TIMELINE MARKERS
-    // ==================================
+    // RENDER TIMELINE MARKERS
 
     function renderTimeline(type) {
 
@@ -117,17 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.alt = "";
 
             marker.appendChild(icon);
-
             timelineContainer.appendChild(marker);
-
         });
-
     }
 
 
-    // ==================================
-    // CREATE MAP PINS
-    // ==================================
+    // RENDER MAP PINS
 
     function renderMap(type) {
 
@@ -150,19 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.alt = "";
 
             pin.appendChild(icon);
-
             mapContainer.appendChild(pin);
-
         });
-
     }
 
 
-    // ==================================
-    // FILTER BUTTONS
-    // ==================================
+    // CHANGE SELECTED FILTER
 
     function selectFilter(type) {
+
+        if (!stationData[type]) {
+            return;
+        }
 
         buttons.forEach(button => {
 
@@ -178,29 +161,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 "aria-pressed",
                 String(active)
             );
-
         });
 
         renderTimeline(type);
         renderMap(type);
-
     }
 
+
+    // BUTTON EVENTS
 
     buttons.forEach(button => {
 
         button.addEventListener("click", () => {
 
             selectFilter(button.dataset.filter);
-
         });
-
     });
 
 
-    // ==================================
-    // DEFAULT: SPORT DRINK
-    // ==================================
+    // DEFAULT SELECTION
 
     selectFilter("drink");
 

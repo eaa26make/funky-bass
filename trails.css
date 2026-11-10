@@ -1,24 +1,30 @@
 
-/* ====================================== */
-/* COURSE INFO PAGE                       */
-/* ====================================== */
+/* =========================================
+   COPENHAGEN MARATHON - COURSE INFO
+   ========================================= */
 
 body[data-page="trails"] {
-    background: #FFF;
+    background: #FFFFFF;
 }
+
+/* MAIN LAYOUT */
 
 .trails-main {
     width: 100%;
     max-width: var(--kiosk-width);
 
     margin: 0;
-    padding: 18px 32px 18px;
+    padding: 18px 32px 24px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
 }
 
 
-/* ====================================== */
-/* ROUTE TIMELINE CARD                    */
-/* ====================================== */
+/* =========================================
+   ROUTE TIMELINE CARD
+   ========================================= */
 
 .route-timeline {
     position: relative;
@@ -26,18 +32,17 @@ body[data-page="trails"] {
     width: 100%;
     height: 296px;
 
-    margin: 0 0 16px;
+    margin: 0;
     padding: 20px 18px;
 
     overflow: hidden;
-
-    background: #FFF;
+    background: #FFFFFF;
 }
 
 .route-heading {
     margin: 0;
 
-    color: #111;
+    color: #111111;
 
     font-family: "Inter", sans-serif;
     font-size: 15px;
@@ -45,20 +50,18 @@ body[data-page="trails"] {
     letter-spacing: 1px;
 }
 
-
-/* ====================================== */
-/* TIMELINE                               */
-/* ====================================== */
+/* TIMELINE STAGE */
 
 .timeline-stage {
     position: relative;
+
     width: 100%;
     height: 235px;
 
     margin-top: 8px;
 }
 
-/* GREY ROUTE LINE */
+/* MAIN GRAY LINE */
 
 .timeline-track {
     position: absolute;
@@ -73,10 +76,7 @@ body[data-page="trails"] {
     border-radius: 4px;
 }
 
-
-/* ====================================== */
-/* START AND FINISH                       */
-/* ====================================== */
+/* START + FINISH */
 
 .timeline-terminal {
     position: absolute;
@@ -88,7 +88,7 @@ body[data-page="trails"] {
 
     transform: translateX(-50%);
 
-    color: #000;
+    color: #000000;
 }
 
 .timeline-start {
@@ -103,7 +103,7 @@ body[data-page="trails"] {
     width: 27px;
     height: 27px;
 
-    background: #000;
+    background: #000000;
     border-radius: 50%;
 }
 
@@ -112,8 +112,7 @@ body[data-page="trails"] {
     height: 12px;
 
     margin-top: 3px;
-
-    background: #000;
+    background: #000000;
 }
 
 .timeline-terminal span {
@@ -124,10 +123,7 @@ body[data-page="trails"] {
     white-space: nowrap;
 }
 
-
-/* ====================================== */
-/* 10 / 20 / 30 KM MARKERS                */
-/* ====================================== */
+/* DISTANCE MARKERS */
 
 .distance-marker {
     position: absolute;
@@ -151,13 +147,10 @@ body[data-page="trails"] {
     width: 3px;
     height: 11px;
 
-    background: #000;
+    background: #000000;
 }
 
-
-/* ====================================== */
-/* FOOD STATION ICONS                     */
-/* ====================================== */
+/* FOOD STOPS */
 
 .timeline-food-stop {
     position: absolute;
@@ -174,9 +167,9 @@ body[data-page="trails"] {
 
     transform: translateX(-50%);
 
-    background: white;
+    background: #FFFFFF;
 
-    border: 4px solid #000;
+    border: 4px solid #000000;
     border-radius: 13px;
 
     z-index: 3;
@@ -202,13 +195,10 @@ body[data-page="trails"] {
 
     transform: translateX(-50%);
 
-    background: #000;
+    background: #000000;
 }
 
-
-/* ====================================== */
-/* SELECTED TIMELINE STATIONS             */
-/* ====================================== */
+/* DYNAMIC TIMELINE STATIONS */
 
 .timeline-stations {
     position: absolute;
@@ -246,17 +236,114 @@ body[data-page="trails"] {
 }
 
 
-/* ====================================== */
-/* ROUTE MAP CARD                         */
-/* ====================================== */
+/* =========================================
+   STATION FILTERS - UPDATED LAYOUT
+   ========================================= */
+
+.station-filters {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+/* FILTER BUTTON */
+
+.station-filter {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    height: 76px;
+
+    gap: 9px;
+    padding: 0 12px;
+
+    background: #000000;
+    color: #FFFFFF;
+
+    border: 2px solid var(--outline);
+    border-left: 4px solid var(--main);
+    border-radius: 11px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.station-filter > span:not(.station-filter-circle) {
+    min-width: 0;
+}
+
+/* ICON */
+
+.station-filter-icon {
+    width: 29px;
+    height: 29px;
+
+    flex-shrink: 0;
+    object-fit: contain;
+
+    filter: brightness(0) invert(1);
+}
+
+/* CIRCLE */
+
+.station-filter-circle {
+    width: 25px;
+    height: 25px;
+
+    margin-left: auto;
+    flex-shrink: 0;
+
+    background: #FFFFFF;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+/* ACTIVE SELECTION */
+
+.station-filter.is-active {
+    background: var(--main);
+    color: #000000;
+}
+
+.station-filter.is-active .station-filter-icon {
+    filter: brightness(0);
+}
+
+.station-filter.is-active .station-filter-circle {
+    background: #FFFFFF;
+    border: 3px solid #000000;
+}
+
+.station-filter:focus-visible {
+    outline: 3px solid #111111;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   ROUTE MAP - UPDATED LAYOUT
+   ========================================= */
 
 .route-map-card {
     position: relative;
 
     width: 100%;
-    height: 450px;
+    height: 590px;
 
-    margin-bottom: 18px;
+    margin: 0;
 
     overflow: hidden;
 
@@ -267,8 +354,7 @@ body[data-page="trails"] {
     border-radius: 16px;
 }
 
-
-/* ROUTE IMAGE */
+/* MAP IMAGE */
 
 .route-map-image {
     display: block;
@@ -280,8 +366,7 @@ body[data-page="trails"] {
     object-position: center center;
 }
 
-
-/* ROUTE MAP TITLE */
+/* MAP TITLE */
 
 .route-map-heading {
     position: absolute;
@@ -293,7 +378,7 @@ body[data-page="trails"] {
 
     margin: 0;
 
-    color: #111;
+    color: #111111;
 
     font-family: "Inter", sans-serif;
     font-size: 12px;
@@ -301,10 +386,7 @@ body[data-page="trails"] {
     letter-spacing: 1px;
 }
 
-
-/* ====================================== */
-/* ROUTE MAP PINS                         */
-/* ====================================== */
+/* PIN OVERLAY */
 
 .route-map-pins {
     position: absolute;
@@ -312,6 +394,8 @@ body[data-page="trails"] {
 
     pointer-events: none;
 }
+
+/* INDIVIDUAL PINS */
 
 .map-pin {
     position: absolute;
@@ -330,7 +414,7 @@ body[data-page="trails"] {
 
     background: var(--main);
 
-    border: 3px solid #000;
+    border: 3px solid #000000;
     border-radius: 50%;
 
     z-index: 3;
@@ -344,246 +428,254 @@ body[data-page="trails"] {
 }
 
 
-/* ====================================== */
-/* FILTER BUTTONS                         */
-/* ====================================== */
-
-.station-filters {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 11px;
-}
-
-.station-filter {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    height: 70px;
-
-    gap: 18px;
-    padding: 0 28px 0 34px;
-
-    background: #000;
-    color: #FFF;
-
-    border: 2px solid var(--outline);
-    border-left: 4px solid var(--main);
-    border-radius: 11px;
-
-    text-align: left;
-
-    font-family: "Inter", sans-serif;
-    font-size: 27px;
-    font-weight: 800;
-
-    cursor: pointer;
-}
-
-.station-filter-icon {
-    width: 35px;
-    height: 35px;
-
-    flex-shrink: 0;
-
-    object-fit: contain;
-
-    filter: brightness(0) invert(1);
-}
-
-
-/* RADIO CIRCLE */
-
-.station-filter-circle {
-    width: 39px;
-    height: 39px;
-
-    margin-left: auto;
-
-    flex-shrink: 0;
-
-    background: #FFF;
-
-    border: 5px solid #FFF;
-    border-radius: 50%;
-}
-
-
-/* ====================================== */
-/* ACTIVE FILTER                          */
-/* ====================================== */
-
-.station-filter.is-active {
-    background: var(--main);
-    color: #000;
-}
-
-.station-filter.is-active .station-filter-icon {
-    filter: brightness(0);
-}
-
-.station-filter.is-active .station-filter-circle {
-    background: white;
-    border: 5px solid #000;
-}
-
-
-/* ====================================== */
-/* FOCUS AND INTERACTION                  */
-/* ====================================== */
-
-.station-filter:focus-visible {
-    outline: 3px solid #111;
-    outline-offset: 3px;
-}
-
-
-/* ====================================== */
-/* RESPONSIVE                             */
-/* ====================================== */
+/* =========================================
+   TABLET BREAKPOINT
+   ========================================= */
 
 @media (max-width: 799px) {
 
     .trails-main {
-        padding: 2.25vw 4vw 2.25vw;
+        padding: 18px clamp(12px, 4vw, 32px) 24px;
+        gap: 14px;
     }
 
     .route-timeline {
-        height: 37vw;
-
-        margin-bottom: 2vw;
-        padding: 2.5vw 2.25vw;
+        height: 270px;
+        padding: 18px 14px;
     }
 
     .route-heading {
-        font-size: 1.875vw;
+        font-size: 14px;
     }
 
     .timeline-stage {
-        height: 29.375vw;
-        margin-top: 1vw;
+        height: 210px;
     }
 
     .timeline-track {
-        top: 15.75vw;
-        height: 1vw;
+        top: 110px;
     }
 
     .timeline-terminal {
-        top: 14.75vw;
-    }
-
-    .terminal-dot {
-        width: 3.375vw;
-        height: 3.375vw;
-    }
-
-    .terminal-tick {
-        height: 1.5vw;
-        width: 0.375vw;
-    }
-
-    .timeline-terminal span,
-    .distance-marker {
-        font-size: 2.375vw;
+        top: 102px;
     }
 
     .distance-marker {
-        top: 19vw;
-        gap: 1.875vw;
-    }
-
-    .distance-tick {
-        width: 0.375vw;
-        height: 1.375vw;
+        top: 136px;
     }
 
     .timeline-food-stop {
-        top: 1.75vw;
-
-        width: 5.75vw;
-        height: 5.75vw;
-
-        border-width: 0.5vw;
-        border-radius: 1.625vw;
-    }
-
-    .timeline-food-stop img {
-        width: 3.5vw;
-        height: 3.5vw;
+        top: 4px;
     }
 
     .timeline-food-stop::after {
-        top: 5.25vw;
-        width: 0.5vw;
-        height: 8.875vw;
+        height: 75px;
     }
 
     .timeline-station {
-        top: 14.25vw;
-
-        width: 4vw;
-        height: 4vw;
-    }
-
-    .timeline-station img {
-        width: 2.625vw;
-        height: 2.625vw;
-    }
-
-    .route-map-card {
-        height: 56.25vw;
-        margin-bottom: 2.25vw;
-    }
-
-    .route-map-heading {
-        top: 2.375vw;
-        left: 2.375vw;
-        font-size: 1.5vw;
-    }
-
-    .map-pin {
-        width: 5.25vw;
-        height: 5.25vw;
-        border-width: 0.375vw;
-    }
-
-    .map-pin img {
-        width: 3.375vw;
-        height: 3.375vw;
+        top: 98px;
     }
 
     .station-filters {
-        gap: 1.375vw;
+        gap: 8px;
     }
 
     .station-filter {
-        height: 8.75vw;
+        height: 65px;
+        gap: 6px;
+        padding: 0 8px;
 
-        gap: 2.25vw;
-        padding: 0 3.5vw 0 4.25vw;
-
-        font-size: 3.375vw;
+        font-size: clamp(11px, 2vw, 16px);
     }
 
     .station-filter-icon {
-        width: 4.375vw;
-        height: 4.375vw;
+        width: 25px;
+        height: 25px;
     }
 
     .station-filter-circle {
-        width: 4.875vw;
-        height: 4.875vw;
-        border-width: 0.625vw;
+        width: 20px;
+        height: 20px;
     }
 
-    .station-filter.is-active .station-filter-circle {
-        border-width: 0.625vw;
+    .route-map-card {
+        height: auto;
+        aspect-ratio: 736 / 590;
     }
 
+    .map-pin {
+        width: 32px;
+        height: 32px;
+    }
+
+    .map-pin img {
+        width: 21px;
+        height: 21px;
+    }
+}
+
+
+/* =========================================
+   MOBILE BREAKPOINT
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .trails-main {
+        padding: 14px 12px 18px;
+        gap: 12px;
+    }
+
+    /* SCROLLABLE TIMELINE */
+
+    .route-timeline {
+        height: 230px;
+        padding: 16px 14px 9px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+    }
+
+    .route-heading {
+        position: sticky;
+        left: 0;
+        z-index: 5;
+
+        width: max-content;
+        max-width: 100%;
+
+        font-size: 13px;
+    }
+
+    .timeline-stage {
+        width: 620px;
+        min-width: 620px;
+        height: 182px;
+
+        margin-top: 7px;
+    }
+
+    .timeline-track {
+        top: 100px;
+        height: 8px;
+    }
+
+    .timeline-terminal {
+        top: 90px;
+    }
+
+    .terminal-dot {
+        width: 24px;
+        height: 24px;
+    }
+
+    .terminal-tick {
+        height: 10px;
+    }
+
+    .timeline-terminal span {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .distance-marker {
+        top: 127px;
+        gap: 6px;
+        font-size: 12px;
+    }
+
+    .distance-tick {
+        height: 9px;
+    }
+
+    .timeline-food-stop {
+        top: 0;
+
+        width: 38px;
+        height: 38px;
+
+        border-width: 3px;
+        border-radius: 10px;
+    }
+
+    .timeline-food-stop img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .timeline-food-stop::after {
+        top: 35px;
+        width: 3px;
+        height: 66px;
+    }
+
+    .timeline-station {
+        top: 91px;
+        width: 26px;
+        height: 26px;
+    }
+
+    .timeline-station img {
+        width: 17px;
+        height: 17px;
+    }
+
+    /* MOBILE FILTERS */
+
+    .station-filters {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .station-filter {
+        width: 100%;
+        height: 56px;
+
+        gap: 12px;
+        padding: 0 14px 0 16px;
+
+        font-size: 17px;
+    }
+
+    .station-filter-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .station-filter-circle {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* MOBILE ROUTE MAP */
+
+    .route-map-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 736 / 450;
+
+        border-radius: 12px;
+    }
+
+    .route-map-heading {
+        top: 11px;
+        left: 11px;
+        font-size: 11px;
+    }
+
+    .map-pin {
+        width: clamp(19px, 5.5vw, 26px);
+        height: clamp(19px, 5.5vw, 26px);
+
+        border-width: 2px;
+    }
+
+    .map-pin img {
+        width: 58%;
+        height: 58%;
+    }
 }

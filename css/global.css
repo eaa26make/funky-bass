@@ -428,3 +428,149 @@ body[data-page="sleeper"] #site-footer {
     }
 
 }
+
+
+/* =========================================
+   MOBILE HEADER & FOOTER
+   HOME + COURSE INFO ONLY
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* HEADER */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-header {
+        height: 64px;
+        padding: 0 10px 0 13px;
+    }
+
+    /* Home wordmark */
+
+    body[data-page="home"] .cm-header__brand {
+        width: 130px;
+        height: 64px;
+        transform: none;
+    }
+
+    body[data-page="home"] .cm-header__brand img {
+        width: 175px;
+        left: -11px;
+        top: -19px;
+    }
+
+    /* Course Info title */
+
+    body[data-page="trails"] .cm-header__title {
+        font-size: 16px;
+        letter-spacing: 0.7px;
+    }
+
+    /* Right-side marathon logo */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-header__mark-window {
+        width: 72px;
+        height: 64px;
+        transform: none;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-header__mark {
+        width: 94px;
+        left: -18px;
+        top: -14px;
+    }
+
+    /* FOOTER */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer {
+        min-height: 43px;
+        height: 43px;
+
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) auto;
+
+        align-items: center;
+        gap: 6px;
+
+        padding: 5px 9px 5px 13px;
+    }
+
+    /* Mobile home button: icon only */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer__home {
+        width: 30px;
+        height: 28px;
+        padding: 0;
+        gap: 0;
+        background: transparent;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer__home span {
+        display: none;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer__home-icon {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+    }
+
+    /* Center branding */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer__branding {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+        white-space: nowrap;
+    }
+
+    /* Language buttons */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-footer__languages {
+        gap: 3px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-language-btn {
+        width: 52px;
+        height: 28px;
+        padding: 0 4px;
+        gap: 3px;
+        font-size: 10px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) .cm-flag {
+        width: 18px;
+        height: 13px;
+    }
+}

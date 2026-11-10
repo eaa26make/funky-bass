@@ -4,7 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Course Info | Copenhagen Marathon</title>
 
@@ -22,10 +26,7 @@
 
     <main class="trails-main">
 
-        <!-- ================================= -->
-        <!-- ROUTE TIMELINE                    -->
-        <!-- ================================= -->
-
+        <!-- ROUTE TIMELINE -->
         <section class="route-timeline widget">
 
             <h2 class="route-heading">
@@ -34,7 +35,6 @@
 
             <div class="timeline-stage">
 
-                <!-- GREY ROUTE LINE -->
                 <div class="timeline-track"></div>
 
                 <!-- START -->
@@ -51,25 +51,32 @@
                     <span>FINISH</span>
                 </div>
 
-
                 <!-- DISTANCE MARKERS -->
-                <div class="distance-marker" style="--position:25%">
+                <div
+                    class="distance-marker"
+                    style="--position:25%"
+                >
                     <span class="distance-tick"></span>
                     <span>10</span>
                 </div>
 
-                <div class="distance-marker" style="--position:50%">
+                <div
+                    class="distance-marker"
+                    style="--position:50%"
+                >
                     <span class="distance-tick"></span>
                     <span>20</span>
                 </div>
 
-                <div class="distance-marker" style="--position:75%">
+                <div
+                    class="distance-marker"
+                    style="--position:75%"
+                >
                     <span class="distance-tick"></span>
                     <span>30</span>
                 </div>
 
-
-                <!-- FOOD STATION SYMBOLS -->
+                <!-- FOOD STATIONS -->
                 <div
                     class="timeline-food-stop"
                     style="--position:22%"
@@ -100,8 +107,7 @@
                     >
                 </div>
 
-
-                <!-- SELECTED STATION MARKERS -->
+                <!-- DYNAMIC TIMELINE MARKERS -->
                 <div
                     id="timelineStations"
                     class="timeline-stations"
@@ -109,14 +115,73 @@
                 ></div>
 
             </div>
+        </section>
+
+
+        <!-- INTERACTIVE STATION SELECTIONS -->
+        <section
+            class="station-filters"
+            aria-label="Route station filters"
+        >
+
+            <!-- WATER -->
+            <button
+                type="button"
+                class="station-filter"
+                data-filter="water"
+                aria-pressed="false"
+            >
+                <img
+                    src="assets/icons/iconWater.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
+
+                <span>WATER</span>
+
+                <span class="station-filter-circle"></span>
+            </button>
+
+            <!-- SPORT DRINK -->
+            <button
+                type="button"
+                class="station-filter is-active"
+                data-filter="drink"
+                aria-pressed="true"
+            >
+                <img
+                    src="assets/icons/iconDrink.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
+
+                <span>SPORT DRINK</span>
+
+                <span class="station-filter-circle"></span>
+            </button>
+
+            <!-- FOOD -->
+            <button
+                type="button"
+                class="station-filter"
+                data-filter="food"
+                aria-pressed="false"
+            >
+                <img
+                    src="assets/icons/iconFood.svg"
+                    alt=""
+                    class="station-filter-icon"
+                >
+
+                <span>FOOD</span>
+
+                <span class="station-filter-circle"></span>
+            </button>
 
         </section>
 
 
-        <!-- ================================= -->
-        <!-- ROUTE MAP                         -->
-        <!-- ================================= -->
-
+        <!-- INTERACTIVE ROUTE MAP -->
         <section class="route-map-card">
 
             <img
@@ -129,86 +194,12 @@
                 ROUTE MAP
             </h2>
 
-            <!-- JS ADDS SELECTED STATION ICONS -->
+            <!-- JS ADDS SELECTED STATION PINS -->
             <div
                 id="mapPins"
                 class="route-map-pins"
                 aria-hidden="true"
             ></div>
-
-        </section>
-
-
-        <!-- ================================= -->
-        <!-- STATION FILTERS                   -->
-        <!-- ================================= -->
-
-        <section
-            class="station-filters"
-            aria-label="Route station filters"
-        >
-
-            <!-- WATER -->
-            <button
-                class="station-filter"
-                type="button"
-                data-filter="water"
-                aria-pressed="false"
-            >
-
-                <img
-                    src="assets/icons/iconWater.svg"
-                    alt=""
-                    class="station-filter-icon"
-                >
-
-                <span>WATER</span>
-
-                <span class="station-filter-circle"></span>
-
-            </button>
-
-
-            <!-- SPORT DRINK -->
-            <button
-                class="station-filter is-active"
-                type="button"
-                data-filter="drink"
-                aria-pressed="true"
-            >
-
-                <img
-                    src="assets/icons/iconDrink.svg"
-                    alt=""
-                    class="station-filter-icon"
-                >
-
-                <span>SPORT DRINK</span>
-
-                <span class="station-filter-circle"></span>
-
-            </button>
-
-
-            <!-- FOOD -->
-            <button
-                class="station-filter"
-                type="button"
-                data-filter="food"
-                aria-pressed="false"
-            >
-
-                <img
-                    src="assets/icons/iconFood.svg"
-                    alt=""
-                    class="station-filter-icon"
-                >
-
-                <span>FOOD</span>
-
-                <span class="station-filter-circle"></span>
-
-            </button>
 
         </section>
 
