@@ -28,6 +28,7 @@ body[data-page="home"] {
 
     overflow: hidden;
     background: #222;
+    border-left: 4px solid var(--main);
 }
 
 .hero-image {
