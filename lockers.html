@@ -15,41 +15,43 @@
 
     <div id="site-header"></div>
 
-    <main>
-        <div class="center-it" id="reserve-container">
-            <div class="widget">
-                <div class="lockers-text">
-                    <h2>Reserve a new locker!</h2>
-                    <p>Enter a custom pin:</p>
-                </div>
-                <div class="lockers-pin">
-                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
-                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
-                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
-                    <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
-                </div>
-                <div class="lockers-reserve">
-                    <button class="btn-sec" id="reserve-btn">Reserve</button>
-                </div>
-            </div>
-            <div class="buttons-container">
-                <div class="widget buttons-container-row" id="check-out">
-                    <img src="assets/icons/iconClose.svg">
-                    <div>
-                        <h2 class="btn-h">Check Out</h2>
-                        <p class="btn-p">Remove your items first!</p>
+    <div class="main-container">
+        <main>
+            <div class="center-it" id="reserve-container">
+                <div class="widget pin-container">
+                    <div class="lockers-text">
+                        <h2>Reserve a new locker!</h2>
+                        <p>Enter a custom pin:</p>
+                    </div>
+                    <div class="lockers-pin">
+                        <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                        <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                        <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                        <input type="password" class="big-pin-input" maxlength="1" autocomplete="off" pattern="[0-9]{4}">
+                    </div>
+                    <div class="lockers-reserve">
+                        <button class="btn-sec" id="reserve-btn">Reserve</button>
                     </div>
                 </div>
-                <div class="widget buttons-container-row" id="help">
-                    <img src="assets/icons/iconClose.svg">
-                    <div>
-                        <h2 class="btn-h">Help</h2>
-                        <p class="btn-p">Need assistance?</p>
+                <div class="buttons-container">
+                    <div class="widget buttons-container-row" id="check-out">
+                        <img src="assets/icons/iconCheckOut.svg">
+                        <div>
+                            <h2 class="btn-h">Check Out</h2>
+                            <p class="btn-p">Remove your items first!</p>
+                        </div>
+                    </div>
+                    <div class="widget buttons-container-row" id="help">
+                        <img src="assets/icons/iconHelp.svg">
+                        <div>
+                            <h2 class="btn-h">Help</h2>
+                            <p class="btn-p">Need assistance?</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <div class="pop-up-overlay" id="popup-overlay"></div>
 
