@@ -67,7 +67,7 @@ main{
     border-radius: 20px;
 }
 .big-pin-input:focus{
-    outline: 2px solid var(--main);
+    outline: 4px solid var(--main);
     caret-color: transparent;
 }
 .lockers-reserve{
@@ -212,7 +212,7 @@ main{
     border-radius: 10px;
 }
 .small-pin-input:focus{
-    outline: 2px solid var(--main);
+    outline: 3px solid var(--main);
     caret-color: transparent;
 }
 #check-out-btn{
@@ -238,4 +238,43 @@ main{
 #call-for-help p{
     color: grey;
     font-style: italic;
+}
+
+
+/*! MOBILE */
+@media (max-width: 660px) {
+    main{
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+    .big-pin-input{
+        width: 65px;
+        height: 85px;
+        border-radius: 12px;
+        font-size: 60px;
+    }
+
+    .buttons-container{
+        display: flex;
+        flex-direction: column;
+    }
+    #check-out{
+        width: 100%;
+    }
+    #help{
+        width: 100%;
+    }
+
+    .pop-up {
+        width: 95%;
+    }
+    #call-for-help{
+        flex-direction: column;
+    }
+    .small-pin-input{
+        width: 45px;
+        height: 65px;
+        border-radius: 6px;
+        font-size: 50px;
+    }
 }

@@ -10,18 +10,6 @@
 .gallery-hero-mobile {
     display: none;
 }
-@media (max-width: 768px) {
-    .gallery-hero {
-        display: none;
-    }
-    .gallery-hero-mobile {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-}
 
 .gallery-hero-heading{
     font-family: "Space Grotesk", sans-serif;
@@ -90,6 +78,22 @@
 }
 .gallery-item.wide {
     grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .gallery-hero {
+        display: none;
+    }
+    .gallery-hero-mobile {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .gallery-list-element{
+        font-size: 14px;
+    }
 }
 
 /*! MODAL */
