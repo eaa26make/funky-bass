@@ -123,8 +123,8 @@
 
     color: #FFF;
 
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 116px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 110px;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 1.06;
@@ -143,8 +143,8 @@
     position: relative;
     top: -0.09em;
 
-    font-family: "Inter", sans-serif;
-    font-size: 0.58em;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.50em;
     font-weight: 700;
     line-height: 1;
     vertical-align: baseline;
@@ -165,11 +165,6 @@
 
     overflow: hidden;
 }
-
-/*
-   Crops the transparent padding inside the
-   official logo-mark PNG without modifying it.
-*/
 
 .sleeper-logo {
     position: absolute;
@@ -208,8 +203,8 @@
 
     color: #FFF;
 
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 78px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 70px;
     font-weight: 400;
 
     letter-spacing: 2px;
