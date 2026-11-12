@@ -53,7 +53,7 @@ async function fetchImages() {
         showcase.innerHTML = '';
 
         if (records.items.length === 0) {
-            showcase.innerHTML = '<p style="color: white; padding: 16px;">No pictures uploaded yet!</p>';
+            showcase.innerHTML = '<p style="color: black; margin: auto; text-align: center;">No pictures uploaded yet!</p>';
             return;
         }
 
