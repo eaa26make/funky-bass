@@ -581,3 +581,292 @@ body[data-page="sleeper"] #site-footer {
         height: 13px;
     }
 }
+
+
+/* =========================================
+   FINAL MOBILE FOOTER FIX
+   HOME + COURSE MAP ONLY
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* FOOTER CONTAINER */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer {
+
+        width: 100%;
+        height: 64px;
+        min-height: 64px;
+
+        display: grid;
+        grid-template-columns:
+            auto
+            minmax(0, 1fr)
+            auto;
+
+        align-items: center;
+
+        gap: 6px;
+        padding: 8px 10px;
+
+        background: #000000;
+        border-left: 4px solid var(--main);
+    }
+
+
+    /* RESTORE YELLOW HOME BUTTON */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__home {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: auto;
+        min-width: 76px;
+        height: 38px;
+
+        padding: 0 10px;
+        gap: 6px;
+
+        background: var(--main);
+        color: #000000;
+
+        border-radius: 30px;
+
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+
+    /* SHOW HOME TEXT AGAIN */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__home span {
+
+        display: inline-block;
+
+        color: #000000;
+
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+    }
+
+
+    /* BLACK HOUSE ICON */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__home-icon {
+
+        display: block;
+
+        width: 16px;
+        height: 16px;
+
+        flex-shrink: 0;
+
+        object-fit: contain;
+        filter: none;
+    }
+
+
+    /* CENTER COPENHAGEN MARATHON TEXT */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__branding {
+
+        display: block;
+
+        min-width: 0;
+
+        margin: 0;
+
+        color: #FFFFFF;
+
+        font-family: "Inter", sans-serif;
+
+        font-size: clamp(7px, 2.1vw, 10px);
+        font-weight: 700;
+        letter-spacing: 0.8px;
+
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+
+    /* LANGUAGE BUTTON CONTAINER */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__languages {
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        justify-self: end;
+
+        flex-wrap: nowrap;
+
+        gap: 5px;
+    }
+
+
+    /* LANGUAGE BUTTONS */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-language-btn {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: auto;
+        min-width: 48px;
+        height: 36px;
+
+        flex-shrink: 0;
+
+        padding: 0 6px;
+        gap: 4px;
+
+        background: #1A1A1A;
+        color: #999999;
+
+        border: 1px solid transparent;
+        border-radius: 25px;
+
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+
+    /* FLAG ICONS */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-flag {
+
+        display: block;
+
+        width: 18px;
+        height: 14px;
+
+        flex-shrink: 0;
+
+        border-radius: 2px;
+    }
+
+
+    /* ACTIVE ENGLISH LANGUAGE BUTTON */
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-language-btn.active {
+
+        background: #1A1A1A;
+        color: var(--main);
+
+        border: 1px solid var(--main);
+    }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL PHONES
+   360px AND BELOW
+   ========================================= */
+
+@media (max-width: 360px) {
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer {
+
+        padding: 7px 6px;
+        gap: 4px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__home {
+
+        min-width: 68px;
+        padding: 0 7px;
+        gap: 4px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__home span {
+
+        font-size: 9px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__branding {
+
+        font-size: 7px;
+        letter-spacing: 0.3px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-footer__languages {
+
+        gap: 3px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-language-btn {
+
+        min-width: 43px;
+        padding: 0 3px;
+
+        gap: 3px;
+        font-size: 9px;
+    }
+
+    :is(
+        body[data-page="home"],
+        body[data-page="trails"]
+    ) #site-footer .cm-flag {
+
+        width: 16px;
+        height: 12px;
+    }
+
+}
